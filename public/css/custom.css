@@ -1,4 +1,95 @@
+/** ROOT */
+:root {
+    --primarycolor: #586AFF;
+}
+
+/** NAVBAR */
+
 .nav-logo{
     width: 400px;
     height: auto;
+}
+
+.nav-item a {
+    color: black;
+}
+
+.nav-link {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.text-hover-white {
+    font-size: 18px;
+}
+
+.text-hover-white:hover {
+    background-color: var(--primarycolor);
+    color:  white !important;
+}
+
+.icon-product {
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    margin-top: 2px;
+    margin-right: 5px;
+    margin-left: 2px;
+    padding: 0;
+}
+
+.mobile-menu-icon {
+    color: black;
+    font-size: 30px;
+    
+}
+
+.bg {
+    background-color: var(--primarycolor);
+}
+
+/** MOBILE PARAMS  */
+
+@media screen and (max-width: 767px) {
+    .text-hover-white:hover {
+        background-color: rgba(255, 255, 255, 0);
+        color: black !important;
+    }
+
+    .badge-cart {
+        margin-left: 18px;
+    }
+
+    .nav-logo {
+        height: 80px;
+        width: auto;
+        margin-right: 2%;
+    }
+
+    .navbar-toggler {
+        border: 2px black solid;
+    }
+
+    .navbar-nav .cart-open {
+        position: relative;
+        margin-left: -100px;
+        margin-top: 38px;
+    }
+
+    .navbar-nav .products-open {
+        margin-left: -108px;
+        margin-top: 38px;
+    }
+
+    .btn-micesta:hover {
+        color: white;
+        background-color: rgb(26, 26, 26);
+        box-shadow: none;
+        transition: none;
+    }
+
+    .link-view-cart:hover {
+        text-decoration: none;
+    }
 }
