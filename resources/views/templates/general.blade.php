@@ -6,7 +6,7 @@
     <nav class="navbar navbar-expand-lg bg-white d-none d-md-block">
         <div class="container-fluid justify-content-center ">
             <a href="./index.html">
-                <img class="nav-logo" src="" alt="logo beready">
+                <img class="nav-logo" src="./img/beready-logo.png" alt="logo beready">
             </a>
         </div>
     </nav>
