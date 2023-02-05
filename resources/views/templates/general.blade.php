@@ -139,22 +139,71 @@
 @endsection
 
 @section('footer')
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4  bg mb-0">
-    <p class="col-md-4 mb-0 text-muted px-3">© 2022 LoveVibes</p>
-
-    <a class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark px-3 px-md-0"
-      rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
-      <img alt="Licencia de Creative Commons" style="border-width:0"
-        src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
-    </a>
-
-    <ul class="nav col-md-4 justify-content-end px-1 px-md-3">
-      <li class="nav-item"><a href="./index.html" class="nav-link px-2 text-muted">Inicio</a></li>
-      <li class="nav-item"><a href="./index.html#products" class="nav-link px-2 text-muted">Productos</a></li>
-      <li class="nav-item"><a href="./html/cartPage.html" class="nav-link px-2 text-muted">Mi cesta</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-      <li class="nav-item"><a href="./index.html#hanging-icons" class="nav-link px-2 text-muted">¿Quienes sómos?</a>
-      </li>
-    </ul>
-  </footer>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <div class="container text-center text-md-start pt-5">
+          <!-- Grid row -->
+          <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold mb-4">BeReady
+              </h6>
+              <p>
+                Esta es una página web realizada por estudiantes de 2º año de
+                DAW (Desarrollo de Aplicaciones Web) con fines exclusivamente
+                educativos.
+              </p>
+            </div>
+            <!-- Grid column -->
+  
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Languages</h6>
+              <p>
+                <a href="https://www.w3schools.com/html/default.asp" class="text-reset">HTML5</a>
+              </p>
+              <p>
+                <a href="https://www.w3schools.com/css/default.asp" class="text-reset">CSS3</a>
+              </p>
+              <p>
+                <a href="https://www.w3schools.com/js/default.asp" class="text-reset">JavaScript</a>
+              </p>
+              <p>
+                <a href="https://www.w3schools.com/js/default.asp" class="text-reset">PHP</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+  
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+              <p>
+                  <i class="bi bi-geo-alt"></i> &nbsp;
+                  Banbridge, Reino Unido
+              </p>
+              <p>
+                  <i class="bi bi-envelope-at"></i> &nbsp;
+                  info@example.com
+              </p>
+                  <i class="bi bi-telephone"></i> &nbsp;
+                  +44 28 4046 4777
+              </p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+  
+        <!-- Copyright -->
+        <div class="text-center p-4">
+          © 2022 Copyright:
+          <a class="text-reset fw-bold" href="https://github.com/pmartinp"
+            >GoTie</a
+          >
+        </div>
+        <!-- Copyright -->
+      </footer>
 @endsection
