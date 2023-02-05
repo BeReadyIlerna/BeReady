@@ -81,7 +81,7 @@
                         <div>
                             <li class="nav-item d-flex position-relative mx-md-5">
                                 <a class="nav-link text-black text-hover-white" href="#" aria-expanded="false"><i
-                                        class="bi bi-person-fill"></i> Acceder</a>
+                                        class="bi bi-person-fill"></i> Mi cuenta</a>
                             </li>
                         </div>
 
@@ -101,7 +101,7 @@
             <!-- Grid column -->
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <!-- Content -->
-              <h6 class="text-uppercase fw-bold mb-4">BeReady
+              <h6 class="text-uppercase fw-bold mb-4">Quiénes somos
               </h6>
               <p>
                 Esta es una página web realizada por estudiantes de 2º año de
@@ -114,18 +114,18 @@
             <!-- Grid column -->
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               <!-- Links -->
-              <h6 class="text-uppercase fw-bold mb-4">Languages</h6>
+              <h6 class="text-uppercase fw-bold mb-4">Ayuda</h6>
               <p>
-                <a href="https://www.w3schools.com/html/default.asp" class="text-reset">HTML5</a>
+                <a href="https://www.w3schools.com/html/default.asp" class="text-reset">Preguntas frecuentes</a>
               </p>
               <p>
-                <a href="https://www.w3schools.com/css/default.asp" class="text-reset">CSS3</a>
+                <a href="https://www.w3schools.com/css/default.asp" class="text-reset">Tramitar devolución</a>
               </p>
               <p>
-                <a href="https://www.w3schools.com/js/default.asp" class="text-reset">JavaScript</a>
+                <a href="https://www.w3schools.com/js/default.asp" class="text-reset">Asistencia técnica</a>
               </p>
               <p>
-                <a href="https://www.w3schools.com/js/default.asp" class="text-reset">PHP</a>
+                <a href="https://www.w3schools.com/js/default.asp" class="text-reset">Trabaja con nosotros</a>
               </p>
             </div>
             <!-- Grid column -->
@@ -133,14 +133,14 @@
             <!-- Grid column -->
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               <!-- Links -->
-              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+              <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
               <p>
                   <i class="bi bi-geo-alt"></i> &nbsp;
-                  Banbridge, Reino Unido
+                  Avda. de la Innovación 7-9, Sevilla
               </p>
               <p>
                   <i class="bi bi-envelope-at"></i> &nbsp;
-                  info@example.com
+                  bereadyilerna@gmail.com
               </p>
                   <i class="bi bi-telephone"></i> &nbsp;
                   +44 28 4046 4777
@@ -154,8 +154,8 @@
         <!-- Copyright -->
         <div class="text-center p-4">
           © 2022 Copyright:
-          <a class="text-reset fw-bold" href="https://github.com/pmartinp"
-            >GoTie</a
+          <a class="text-reset fw-bold" href="https://github.com/BeReadyIlerna/BeReady"
+            >BeReady</a
           >
         </div>
         <!-- Copyright -->
