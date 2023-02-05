@@ -20,6 +20,7 @@
                     <div id="product-1" class="single-product">
                         <div class="part-1">
                             <span class="discount">40% descuento</span>
+                            <img class="w-75 m-0" src="./img/159-xiaomi-redmi-note-11s-6-128gb-gris-libre.webp" alt="imagen del producto">
                             <ul>
                                 <li><i id="cart-1" class="bi bi-cart" onclick="checkIcon('cart-1')"></i></li>
                                 <li><i id="heart-1" class="bi bi-suit-heart" onclick="checkIcon('heart-1')"></i></li>
@@ -39,6 +40,7 @@
                     <div id="product-2" class="single-product">
                         <div class="part-1">
                             <span class="discount">46% descuento</span>
+                            <img class="w-75 m-0" src="./img/126-apple-iphone-13-128gb-medianoche-libre.webp" alt="imagen del producto">
                             <ul>
                                 <li><i id="cart-2" class="bi bi-cart" onclick="checkIcon('cart-2')"></i></li>
                                 <li><i id="heart-2" class="bi bi-suit-heart" onclick="checkIcon('heart-2')"></i></li>
@@ -58,6 +60,7 @@
                     <div id="product-3" class="single-product">
                         <div class="part-1">
                             <span class="new">new</span>
+                            <img class="w-75 m-0" src="./img/1193-samsung-galaxy-s23-ultra-256gb-algodon-libre-cargador-25w.webp" alt="imagen del producto">
                             <ul>
                                 <li><i id="cart-3" class="bi bi-cart" onclick="checkIcon('cart-3')"></i></li>
                                 <li><i id="heart-3" class="bi bi-suit-heart" onclick="checkIcon('heart-3')"></i></li>
@@ -76,8 +79,8 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div id="product-4" class="single-product">
                         <div class="part-1">
-
                             <span class="discount">33% descuento</span>
+                            <img class="w-75 m-0" src="./img/1752-samsung-galaxy-tab-s8-5g-128gb-gris-oscuro.webp" alt="imagen del producto">
                             <ul>
                                 <li><i id="cart-4" class="bi bi-cart" onclick="checkIcon('cart-4')"></i></li>
                                 <li><i id="heart-4" class="bi bi-suit-heart" onclick="checkIcon('heart-4')"></i></li>
@@ -101,6 +104,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div id="product-5" class="single-product">
                         <div class="part-1">
+                            <img class="w-75 m-0" src="./img/1533-kioxia-exceria-g2-unidad-ssd-1tb-nvme-m2-2280.webp" alt="imagen del producto">
                             <ul>
                                 <li><i id="cart-5" class="bi bi-cart" onclick="checkIcon('cart-5')"></i></li>
                                 <li><i id="heart-5" class="bi bi-suit-heart" onclick="checkIcon('heart-5')"></i></li>
@@ -120,6 +124,7 @@
                     <div id="product-6" class="single-product">
                         <div class="part-1">
                             <span class="new">new</span>
+                            <img class="w-75 m-0" src="./img/1157-msi-geforce-rtx-3060-ventus-2x-oc-12gb-gddr6.webp" alt="imagen del producto">
                             <ul>
                                 <li><i id="cart-6" class="bi bi-cart" onclick="checkIcon('cart-6')"></i></li>
                                 <li><i id="heart-6" class="bi bi-suit-heart" onclick="checkIcon('heart-6')"></i></li>
@@ -139,6 +144,7 @@
                     <div id="product-7" class="single-product">
                         <div class="part-1">
                             <span class="discount">30% descuento</span>
+                            <img class="w-75 m-0" src="./img/1636-intel-core-i5-12400f-44-ghz.webp" alt="imagen del producto">
                             <ul>
                                 <li><i id="cart-7" class="bi bi-cart" onclick="checkIcon('cart-7')"></i></li>
                                 <li><i id="heart-7" class="bi bi-suit-heart" onclick="checkIcon('heart-7')"></i></li>
@@ -157,8 +163,8 @@
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div id="product-8" class="single-product">
                         <div class="part-1">
-
                             <span class="discount">48% descuento</span>
+                            <img class="w-75 m-0" src="./img/1955-kingston-fury-beast-ddr5-5200mhz-32gb-2x16gb-cl40.webp" alt="imagen del producto">
                             <ul>
                                 <li><i id="cart-8" class="bi bi-cart" onclick="checkIcon('cart-8')"></i></li>
                                 <li><i id="heart-8" class="bi bi-suit-heart" onclick="checkIcon('heart-8')"></i></li>
