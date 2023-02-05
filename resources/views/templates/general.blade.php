@@ -12,7 +12,7 @@
         </nav>
 
         <!-- Menu -->
-        <nav class="navbar navbar-expand-md mt-sm-0" aria-label="Tenth navbar example">
+        <nav class="navbar navbar-expand-md mt-sm-0 bg-white" aria-label="Tenth navbar example">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-menu"
                     aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
