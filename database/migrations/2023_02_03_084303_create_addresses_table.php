@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tickets', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table) {
             $table->id();
+            $table->enum("way_type", ["street","avenue","square"]);
+            $table->string("way_name");
+            $table->string("town");
+            $table->string("province");
+            $table->string("zipcode");
+            $table->text("observation");
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists('addresses');
     }
 };

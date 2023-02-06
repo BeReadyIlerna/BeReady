@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('shopping_card_product', function (Blueprint $table) {
+        Schema::create('shoppingcarts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("product_id")->references("id")->on("products");
-            $table->foreignId("shopping_cart_id")->references("id")->on("shopping_carts");
+            $table->float("total");
+            $table->foreignId("user_id")->references("id")->on("users");
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shopping_card_product');
+        Schema::dropIfExists('shoppingcarts');
     }
 };
