@@ -21,7 +21,6 @@ return new class extends Migration
             $table->text("description");
             $table->string("image");
             $table->float("IVA");
-            $table->boolean("has_discount")->default(0);
             $table->float("total");    
             $table->timestamps();
         });
