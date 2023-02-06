@@ -18,4 +18,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // })->name('index');
 
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
 Route::get('/', [ ProductsController::class, 'products'])->name('index');
