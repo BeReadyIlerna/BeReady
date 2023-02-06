@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shoppingcart extends Model
 {
-    use HasFactory;
+    public function product(){
+        return $this->belongsToMany(Product::class);
+    }
 }
