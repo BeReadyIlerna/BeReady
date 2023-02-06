@@ -271,3 +271,35 @@
     background-color: #444444;
     transform: translateY(-50%);
 }
+
+/** LOGIN */
+.a-divider.a-divider-break{
+    text-align: center;
+    position: relative;
+    top: 2px;
+    padding-top: 1px;
+    margin-bottom: 14px;
+    line-height: 0;
+}
+
+.a-divider.a-divider-break:after{
+    content: "";
+    width: 100%;
+    background-color: transparent;
+    display: block;
+    height: 1px;
+    border-top: 1px solid #e7e7e7;
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    z-index: 1;
+}
+
+.login-logo{
+    width: 200px;
+    height: auto;
+}
+
+.mw-350{
+    min-width: 350px;
+}
