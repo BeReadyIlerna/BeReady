@@ -47,6 +47,34 @@
 
             <div class="row">
                 <!-- Single Product -->
+                @foreach ($products as $product)
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div id="product-{{$product->id}}" class="single-product">
+                        <div class="part-1 text-center">
+                            {{-- <span class="discount">40% descuento</span> --}}
+                            <img class="h-100 w-auto m-0" src={{$product->image}}
+                                alt="imagen del producto">
+                            <ul>
+                                <li><i id="cart-{{$product->id}}" class="bi bi-cart" onclick="checkIcon('cart-{{$product->id}}')"></i></li>
+                                <li><i id="heart-{{$product->id}}" class="bi bi-suit-heart" onclick="checkIcon('heart-{{$product->id}}')"></i></li>
+                                <li><i class="bi bi-fullscreen"
+                                        onclick="popupImage({{$product->image}})"></i></li>
+                            </ul>
+                        </div>
+                        <div class="part-2">
+                            <h3 class="product-title">{{$product->name}}</h3>
+                            {{-- <h4 class="product-old-price">49.99€</h4> --}}
+                            <h4 class="product-price">{{$product->total}}€</h4>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                <div class="justify-content-center d-flex text-center">
+                    {{ $products->links() }}
+                </div>
+                
+                
+{{-- 
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div id="product-1" class="single-product">
                         <div class="part-1 text-center">
@@ -162,8 +190,7 @@
                     <div id="product-6" class="single-product">
                         <div class="part-1 text-center">
                             <span class="new">new</span>
-                            <img class="h-100 w-auto m-0"
-                                src="./img/1157-msi-geforce-rtx-3060-ventus-2x-oc-12gb-gddr6.webp"
+                            <img class="h-100 w-auto m-0" src="./img/1157-msi-geforce-rtx-3060-ventus-2x-oc-12gb-gddr6.webp"
                                 alt="imagen del producto">
                             <ul>
                                 <li><i id="cart-6" class="bi bi-cart" onclick="checkIcon('cart-6')"></i></li>
@@ -224,7 +251,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> --}}
 
         </div>
     </section>
