@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    use HasFactory;
+    public function user(){
+        return $this->hasMany(User::class);
+    }
+
+    public function product(){
+        return $this->belongsToMany(Product::class);
+    }
 }

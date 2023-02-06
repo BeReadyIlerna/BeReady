@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer("stock");
             $table->text("description");
             $table->string("image");
+            $table->float("IVA");
+            $table->float("total");    
             $table->timestamps();
         });
     }

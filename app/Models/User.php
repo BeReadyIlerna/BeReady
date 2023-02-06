@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    use HasFactory;
+    public function address(){
+        return $this->hasMany(Address::class);
+    }
+
+    public function order(){
+        return $this->belongsTo(Order::class);
+    }
 }
