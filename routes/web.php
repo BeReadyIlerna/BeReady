@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,5 @@ Route::get('/singup', function () {
 })->name('singup');
 
 Route::get('/', [ ProductsController::class, 'products'])->name('index');
+
+Route::post("singup", [UsersController::class, "createuser"]);
