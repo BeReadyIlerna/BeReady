@@ -22,4 +22,11 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+Route::get('/newproduct', function () {
+    return view('newproduct');
+})->name('product.new');
+
 Route::get('/', [ ProductsController::class, 'products'])->name('index');
+
+
+Route::post('addProduct', [ProductsController::class, 'create'])->name('product.create');
