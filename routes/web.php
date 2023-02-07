@@ -22,4 +22,8 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+Route::get('/singup', function () {
+    return view('singup');
+})->name('singup');
+
 Route::get('/', [ ProductsController::class, 'products'])->name('index');
