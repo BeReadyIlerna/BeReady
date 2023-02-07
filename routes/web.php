@@ -22,4 +22,6 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
+
 Route::get('/', [ ProductsController::class, 'products'])->name('index');
