@@ -80,7 +80,7 @@
 
                         <div>
                             <li class="nav-item d-flex position-relative mx-md-5">
-                                <a class="nav-link text-black text-hover-white" href="#" aria-expanded="false"><i
+                                <a class="nav-link text-black text-hover-white" href="/login" aria-expanded="false"><i
                                         class="bi bi-person-fill"></i> Mi cuenta</a>
                             </li>
                         </div>

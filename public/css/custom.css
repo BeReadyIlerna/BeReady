@@ -5,8 +5,8 @@
 
 /** NAVBAR */
 
-.nav-logo{
-    width: 400px;
+.nav-logo {
+    width: 360px;
     height: auto;
 }
 
@@ -25,7 +25,7 @@
 
 .text-hover-white:hover {
     background-color: var(--primarycolor);
-    color:  white !important;
+    color: white !important;
 }
 
 .icon-product {
@@ -42,7 +42,7 @@
 .mobile-menu-icon {
     color: black;
     font-size: 30px;
-    
+
 }
 
 .bg {
@@ -145,58 +145,13 @@
     transition: all 0.3s;
 }
 
-.section-products .single-product:hover .part-1::before {
-    transform: scale(1.2, 1.2) rotate(5deg);
-}
-
-.section-products #product-1 .part-1::before {
-    background: url("../img/productos/SatisfyerPro2.webp") no-repeat center;
-    background-size: cover;
-    transition: all 0.3s;
-}
-
-.section-products #product-2 .part-1::before {
-    background: url("../img/productos/MamboLavanda.webp") no-repeat center;
-    background-size: cover;
-}
-
-.section-products #product-3 .part-1::before {
-    background: url("../img/productos/brillyglam_rabbit.png") no-repeat center;
-    background-size: cover;
-}
-
-.section-products #product-4 .part-1::before {
-    background: url("../img/productos/zumba_masturbador.webp") no-repeat center;
-    background-size: cover;
-}
-
-.section-products #product-5 .part-1::before {
-    background: url("../img/productos/Lelo_control_remoto.jpg") no-repeat center;
-    background-size: cover;
-}
-
-.section-products #product-6 .part-1::before {
-    background: url("../img/productos/liebe_lubricante.webp") no-repeat center;
-    background-size: cover;
-}
-
-.section-products #product-7 .part-1::before {
-    background: url("./img/1636-intel-core-i5-12400f-44-ghz.webp") no-repeat center;
-    background-size: cover;
-}
-
-.section-products #product-8 .part-1::before {
-    background: url("./img/1955-kingston-fury-beast-ddr5-5200mhz-32gb-2x16gb-cl40.webp") no-repeat center;
-    background-size: cover;
-}
-
 .section-products .single-product .part-1 .discount,
 .section-products .single-product .part-1 .new {
     position: absolute;
     top: 15px;
     left: 0px;
     color: #ffffff;
-    background-color: var(--secondcolor);
+    background-color: var(--primarycolor);
     padding: 2px 8px;
     text-transform: uppercase;
     font-size: 0.85rem;
@@ -270,4 +225,36 @@
     height: 1px;
     background-color: #444444;
     transform: translateY(-50%);
+}
+
+/** LOGIN */
+.a-divider.a-divider-break{
+    text-align: center;
+    position: relative;
+    top: 2px;
+    padding-top: 1px;
+    margin-bottom: 14px;
+    line-height: 0;
+}
+
+.a-divider.a-divider-break:after{
+    content: "";
+    width: 100%;
+    background-color: transparent;
+    display: block;
+    height: 1px;
+    border-top: 1px solid #e7e7e7;
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    z-index: 1;
+}
+
+.login-logo{
+    width: 200px;
+    height: auto;
+}
+
+.mw-350{
+    min-width: 350px;
 }
