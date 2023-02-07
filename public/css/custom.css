@@ -258,3 +258,10 @@
 .mw-350{
     min-width: 350px;
 }
+
+/** PRODUCT*/
+
+.product-image{
+    max-height: 400px;
+    width: auto;
+}

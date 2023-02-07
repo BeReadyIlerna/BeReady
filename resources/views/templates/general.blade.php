@@ -21,7 +21,7 @@
 
                 <!-- Logo navbar mobile -->
                 <a href={{ route('index') }}>
-                    <img class="nav-logo d-block d-md-none my-auto" src="./img/beready-logo.png" alt="logo beready">
+                    <img class="nav-logo d-block d-md-none my-auto" src="{{URL::asset('img/beready-logo.png')}}" alt="logo beready">
                 </a>
 
                 <div class="collapse navbar-collapse justify-content-md-center" id="mobile-menu">
