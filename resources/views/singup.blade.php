@@ -72,7 +72,7 @@
         </div>
 
         <div class="container-fluid text-center m-2">
-            <label for="zipcode">Codigo Postal</label>
+            <label for="zipcode">Código Postal</label>
             <input type="text" id="zipcode" class="zipcode">
         </div>
 
@@ -83,7 +83,7 @@
         </div>
 
         <div class="container-fluid text-center m-2">
-            <input type="button" value="Enviar" class="btn btn-primary">
+            <input type="submit" value="Enviar" class="btn btn-primary">
         </div>
 
 

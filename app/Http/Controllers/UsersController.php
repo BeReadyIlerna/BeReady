@@ -13,6 +13,20 @@ class UsersController extends Controller
    }
 
    public function createuser(Request $request){
+
+      $request->validate([
+         "name"=>"required","max:255",
+         "surname"=>"required","max:255",
+         "email"=>"required","email",
+         "phone"=>"required","numeric","digits:10",
+         "password"=>"required",
+         "way_name"=>"required",
+         "town"=>"required",
+         "zipcode"=>"required",
+         "observation"=>"required","max:255"
+
+      ]);
+
       $user = new User;
       $user->name = $request->name;
       $user->surname = $request->surname;
