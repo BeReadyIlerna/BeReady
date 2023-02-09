@@ -10,7 +10,7 @@ class ProductsController extends Controller
 {
     public function products()
     {
-        $products = Product::all();
+        $products = Product::latest()->take(8)->get();
         return view('index', @compact('products'));
     }
 
