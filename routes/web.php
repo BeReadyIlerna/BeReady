@@ -26,6 +26,6 @@ Route::get('/newproduct', function () {
     return view('newproduct');
 })->name('product.new');
 
-Route::get('/', [ ProductsController::class, 'products'])->name('index');
+Route::get('/', [ProductsController::class, 'products'])->name('index');
 
 Route::post('addProduct', [ProductsController::class, 'create'])->name('product.create');

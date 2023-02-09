@@ -15,7 +15,6 @@
                     </div>
                 @endif
 
-
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
                         <ul>
@@ -28,65 +27,52 @@
 
                 <div class="form-floating mb-3 mt-3">
                     <input class="form-control" id="name" type="text" name="name" placeholder="Nombre"
-                        data-sb-validations="required" />
-                    <label for="nombre">Nombre</label>
-                    {{-- @error('name')
-                        <div class="alert alert-danger">¡Ups! Hubo un error en el nombre</div>
-                    @enderror --}}
-                    {{-- <div class="invalid-feedback" data-sb-feedback="name:required">El nombre no puede estar vacío</div> --}}
+                        data-sb-validations="required" value="{{ old('name') }}" />
+                    <label for="nombre">Nombre<span class="text-danger">*</span></label>
                 </div>
 
                 <div class="form-floating mb-3">
                     <input class="form-control" id="price" type="number" name="price" placeholder="Precio"
-                        data-sb-validations="required" />
-                    <label for="precio">Precio</label>
-                    {{-- @error('price')
-                        <div class="alert alert-danger">¡Ups! Hubo un error en el precio</div>
-                    @enderror --}}
+                        data-sb-validations="required" value="{{ old('price') }}" />
+                    <label for="precio">Precio<span class="text-danger">*</span></label>
                 </div>
 
                 <div class="form-floating mb-3">
                     <input class="form-control" id="iva" type="number" name="IVA" placeholder="IVA"
-                        data-sb-validations="required" />
-                    <label for="iva">IVA</label>
+                        data-sb-validations="required" value="{{ old('IVA') }}" />
+                    <label for="iva">IVA<span class="text-danger">*</span></label>
                 </div>
 
                 <div class="form-floating mb-3">
                     <input class="form-control" id="stock" type="number" name="stock" placeholder="Stock"
-                        data-sb-validations="required" />
-                    <label for="stock">Stock</label>
-                    {{-- @error('stock')
-                        <div class="alert alert-danger">¡Ups! Hubo un error en el stock</div>
-                    @enderror --}}
+                        data-sb-validations="required" value="{{ old('stock') }}" />
+                    <label for="stock">Stock<span class="text-danger">*</span></label>
                 </div>
 
                 <div class="form-floating mb-3">
                     <textarea class="form-control" id="description" type="text" name="description" placeholder="Descripción"
-                        style="height: 10rem;" data-sb-validations="required"></textarea>
-                    <label for="descripcion">Descripción</label>
-                    {{-- @error('description')
-                        <div class="alert alert-danger">¡Ups! Hubo un error en la descripción</div>
-                    @enderror --}}
+                        style="height: 10rem;" data-sb-validations="required" value="{{ old('description') }}"></textarea>
+                    <label for="descripcion">Descripción <span class="text-danger">*</span></label>
                 </div>
 
                 <div class="form-floating mb-3">
                     <select class="form-select" id="category" aria-label="Categoría" name="category">
-                        <option value="mobile">Móviles y tablets</option>
-                        <option value="ram">Memorias ram</option>
-                        <option value="processor">Procesadores</option>
-                        <option value="graphiccard">Tarjetas gráficas</option>
-                        {{-- <option value=""></option> --}}
+                        <option value="mobile" {{ old('category') == 'mobile' ? 'selected' : '' }}>Móviles y tablets
+                        </option>
+                        <option value="ram" {{ old('category') == 'ram' ? 'selected' : '' }}>Memorias ram</option>
+                        <option value="processor" {{ old('category') == 'processor' ? 'selected' : '' }}>Procesadores
+                        </option>
+                        <option value="graphiccard" {{ old('category') == 'graphiccard' ? 'selected' : '' }}>Tarjetas
+                            gráficas</option>
                     </select>
-                    <label for="category">Categoría</label>
+                    <label for="category">Categoría<span class="text-danger">*</span></label>
                 </div>
 
                 <div class="form-floating mb-3">
                     <input class="form-control" id="image" type="file" name="image" placeholder="Imagen"
-                        accept="image/png, image/jpeg, image/webp" data-sb-validations="required" />
-                    <label for="image">Imagen</label>
-                    {{-- @error('image')
-                        <div class="alert alert-danger">¡Ups! Hubo un error en la imagen</div>
-                    @enderror --}}
+                        accept="image/png, image/jpeg, image/webp" data-sb-validations="required"
+                        value="{{ old('image') }}" />
+                    <label for="image">Imagen<span class="text-danger">*</span></label>
                 </div>
 
                 <div class="justify-content-center d-flex">
