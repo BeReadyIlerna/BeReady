@@ -16,18 +16,23 @@
                 @endif
 
 
-
-
-
-
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 <div class="form-floating mb-3 mt-3">
                     <input class="form-control" id="name" type="text" name="name" placeholder="Nombre"
                         data-sb-validations="required" />
                     <label for="nombre">Nombre</label>
-                    @error('name')
+                    {{-- @error('name')
                         <div class="alert alert-danger">¡Ups! Hubo un error en el nombre</div>
-                    @enderror
+                    @enderror --}}
                     {{-- <div class="invalid-feedback" data-sb-feedback="name:required">El nombre no puede estar vacío</div> --}}
                 </div>
 
@@ -35,9 +40,9 @@
                     <input class="form-control" id="price" type="number" name="price" placeholder="Precio"
                         data-sb-validations="required" />
                     <label for="precio">Precio</label>
-                    @error('price')
+                    {{-- @error('price')
                         <div class="alert alert-danger">¡Ups! Hubo un error en el precio</div>
-                    @enderror
+                    @enderror --}}
                 </div>
 
                 <div class="form-floating mb-3">
@@ -47,21 +52,21 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="stock" type="number" name="number" placeholder="Stock"
+                    <input class="form-control" id="stock" type="number" name="stock" placeholder="Stock"
                         data-sb-validations="required" />
                     <label for="stock">Stock</label>
-                    @error('stock')
+                    {{-- @error('stock')
                         <div class="alert alert-danger">¡Ups! Hubo un error en el stock</div>
-                    @enderror
+                    @enderror --}}
                 </div>
 
                 <div class="form-floating mb-3">
                     <textarea class="form-control" id="description" type="text" name="description" placeholder="Descripción"
                         style="height: 10rem;" data-sb-validations="required"></textarea>
                     <label for="descripcion">Descripción</label>
-                    @error('description')
+                    {{-- @error('description')
                         <div class="alert alert-danger">¡Ups! Hubo un error en la descripción</div>
-                    @enderror
+                    @enderror --}}
                 </div>
 
                 <div class="form-floating mb-3">
@@ -70,7 +75,7 @@
                         <option value="ram">Memorias ram</option>
                         <option value="processor">Procesadores</option>
                         <option value="graphiccard">Tarjetas gráficas</option>
-                        <option value=""></option>
+                        {{-- <option value=""></option> --}}
                     </select>
                     <label for="category">Categoría</label>
                 </div>
@@ -79,14 +84,17 @@
                     <input class="form-control" id="image" type="file" name="image" placeholder="Imagen"
                         accept="image/png, image/jpeg, image/webp" data-sb-validations="required" />
                     <label for="image">Imagen</label>
-                    @error('image')
+                    {{-- @error('image')
                         <div class="alert alert-danger">¡Ups! Hubo un error en la imagen</div>
-                    @enderror
+                    @enderror --}}
                 </div>
 
-                <div class="d-grid">
-                    <button class="btn btn-primary btn-lg" id="submitProduct" type="submit">Crear producto</button>
+                <div class="justify-content-center d-flex">
+                    <div class="d-grid col-3">
+                        <button class="btn btn-primary btn-lg" id="submitProduct" type="submit">Crear producto</button>
+                    </div>
                 </div>
+
             </form>
 
         </div>
