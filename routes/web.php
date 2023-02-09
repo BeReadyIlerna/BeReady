@@ -23,4 +23,10 @@ Route::get('/login', function () {
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
 
-Route::get('/', [ ProductsController::class, 'products'])->name('index');
+Route::get('/newproduct', function () {
+    return view('newproduct');
+})->name('product.new');
+
+Route::get('/', [ProductsController::class, 'products'])->name('index');
+
+Route::post('addProduct', [ProductsController::class, 'create'])->name('product.create');
