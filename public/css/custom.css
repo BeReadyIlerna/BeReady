@@ -265,3 +265,13 @@
     max-height: 400px;
     width: auto;
 }
+
+.product-quantity-width{
+    width: 50px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
