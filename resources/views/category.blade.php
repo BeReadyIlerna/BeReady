@@ -18,7 +18,7 @@
                             <div id="product-{{ $product->id }}" class="single-product">
                                 <div class="part-1 text-center">
                                     {{-- <span class="discount">40% descuento</span> --}}
-                                    <img class="h-100 w-auto m-0" src={{ $product->image }} alt="imagen del producto">
+                                    <a href="product/{{$product->id}}"><img class="h-100 w-auto m-0" src={{ $product->image }} alt="imagen del producto"></a>
                                     <ul>
                                         <li><i id="cart-{{ $product->id }}" class="bi bi-cart"
                                                 onclick="checkIcon('cart-{{ $product->id }}')"></i></li>
@@ -35,7 +35,6 @@
                             </div>
                         </div>
                 @endforeach
-                </div>
             </div>
 
 

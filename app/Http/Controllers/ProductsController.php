@@ -41,6 +41,7 @@ class ProductsController extends Controller
             $newProduct->description = $request->description;
             $newProduct->IVA = $request->IVA;
             $newProduct->total = ($newProduct->price * ($newProduct->IVA / 100)) + $newProduct->price;
+            $newProduct->category_id = 2; //TODO completar formulario para poner las categorías de la BBDD
             $newProduct->save();
 
             $imageName = "image-" . $newProduct->id . '.' . $request->image->extension();
