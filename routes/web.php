@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,13 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// })->name('index');
-
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+
+//Route::get('/{name?}', CategoryController::class, )->name('category');
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
 
