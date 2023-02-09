@@ -49,7 +49,7 @@
 
 <h1 class="text-center">Registro Usuario</h1>
 
-<div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center ">
     <form action="{{ route('user.create') }}" method="POST">
         @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
 
