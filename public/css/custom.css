@@ -3,14 +3,6 @@
     --primarycolor: #586AFF;
 }
 
-/** GENERAL */
-
-
-.div-body {
-    min-height: 80vh;
-    /* min-height: -webkit-fill-available; */
-}
-
 /** NAVBAR */
 
 .nav-logo {
