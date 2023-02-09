@@ -6,7 +6,7 @@
         <nav class="navbar navbar-expand-lg bg-white d-none d-md-block">
             <div class="container-fluid justify-content-center ">
                 <a href={{ route('index') }}>
-                    <img class="nav-logo" src="./img/beready-logo.png" alt="logo beready">
+                    <img class="nav-logo" src="{{URL::asset('img/beready-logo.png')}}" alt="logo beready">
                 </a>
             </div>
         </nav>
@@ -21,7 +21,7 @@
 
                 <!-- Logo navbar mobile -->
                 <a href={{ route('index') }}>
-                    <img class="nav-logo d-block d-md-none my-auto" src="./img/beready-logo.png" alt="logo beready">
+                    <img class="nav-logo d-block d-md-none my-auto" src="{{URL::asset('img/beready-logo.png')}}" alt="logo beready">
                 </a>
 
                 <div class="collapse navbar-collapse justify-content-md-center" id="mobile-menu">
@@ -80,7 +80,7 @@
 
                         <div>
                             <li class="nav-item d-flex position-relative mx-md-5">
-                                <a class="nav-link text-black text-hover-white" href="/login" aria-expanded="false"><i
+                                <a class="nav-link text-black text-hover-white" href={{Route('login')}} aria-expanded="false"><i
                                         class="bi bi-person-fill"></i> Mi cuenta</a>
                             </li>
                         </div>

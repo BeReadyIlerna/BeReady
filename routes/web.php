@@ -14,13 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// })->name('index');
-
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+
+Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
 
 Route::get('/newproduct', function () {
     return view('newproduct');

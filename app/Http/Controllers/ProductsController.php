@@ -14,6 +14,12 @@ class ProductsController extends Controller
         return view('index', @compact('products'));
     }
 
+
+    public function selectProduct($id) {
+        $product = Product::findOrFail($id); // Get selected product
+        return view('product', @compact('product'));
+    }
+
     public function create(Request $request)
     {
         $request->validate([
