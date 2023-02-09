@@ -29,7 +29,7 @@ Route::get('/signup', function () {
 
 Route::get('/login', function () {
     return view('signup');
-})->name('signup');
+})->name('registro');
 
 
 Route::get('/', [ ProductsController::class, 'products'])->name('index');
