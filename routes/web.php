@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +22,14 @@ Route::get('/login', function () {
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
 
-Route::get('/newproduct', function () {
-    return view('newproduct');
-})->name('product.new');
+Route::get('/newproduct', [ProductsController::class, 'showCategories'])->name('product.new');
+
+Route::get('/newcategory', function () {
+    return view('newcategory');
+})->name('category.new');
 
 Route::get('/', [ProductsController::class, 'products'])->name('index');
 
 Route::post('addProduct', [ProductsController::class, 'create'])->name('product.create');
+
+Route::post('addCategory', [CategoriesController::class, 'create'])->name('category.create');

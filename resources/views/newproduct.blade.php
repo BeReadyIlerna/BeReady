@@ -2,7 +2,7 @@
 
 @section('body')
     <div class="div-body col-12">
-        <div class="py-5 justify-content-center container col-6">
+        <div class="py-5 justify-content-center container col-12 col-lg-6">
             <div class="text-center py-3">
                 <h2>Crear nuevo producto</h2>
             </div>
@@ -38,8 +38,8 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="iva" type="number" name="IVA" placeholder="IVA"
-                        data-sb-validations="required" value="{{ old('IVA') }}" />
+                    <input class="form-control" id="iva" type="number" name="iva" placeholder="IVA"
+                        data-sb-validations="required" value="{{ old('iva') }}" />
                     <label for="iva">IVA<span class="text-danger">*</span></label>
                 </div>
 
@@ -50,20 +50,18 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" id="description" type="text" name="description" placeholder="Descripción"
-                        style="height: 10rem;" data-sb-validations="required" value="{{ old('description') }}"></textarea>
+                    <textarea class="form-control desc-form" id="description" type="text" name="description" placeholder="Descripción"
+                        data-sb-validations="required" value="{{ old('description') }}"></textarea>
                     <label for="descripcion">Descripción <span class="text-danger">*</span></label>
                 </div>
 
                 <div class="form-floating mb-3">
                     <select class="form-select" id="category" aria-label="Categoría" name="category">
-                        <option value="mobile" {{ old('category') == 'mobile' ? 'selected' : '' }}>Móviles y tablets
-                        </option>
-                        <option value="ram" {{ old('category') == 'ram' ? 'selected' : '' }}>Memorias ram</option>
-                        <option value="processor" {{ old('category') == 'processor' ? 'selected' : '' }}>Procesadores
-                        </option>
-                        <option value="graphiccard" {{ old('category') == 'graphiccard' ? 'selected' : '' }}>Tarjetas
-                            gráficas</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}" {{ old('category') == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
                     </select>
                     <label for="category">Categoría<span class="text-danger">*</span></label>
                 </div>
@@ -76,7 +74,7 @@
                 </div>
 
                 <div class="justify-content-center d-flex">
-                    <div class="d-grid col-3">
+                    <div class="d-grid col-6 col-lg-3">
                         <button class="btn btn-primary btn-lg" id="submitProduct" type="submit">Crear producto</button>
                     </div>
                 </div>
