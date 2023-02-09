@@ -46,7 +46,7 @@
                 <hr>
             </div>
             <p>¿Eres nuevo en BeReady?</p>
-            <a clas="" href="#">
+            <a clas="" href="">
                 <button class="btn btn-primary bg-primary px-4">
                     Regístrate
                 </button>

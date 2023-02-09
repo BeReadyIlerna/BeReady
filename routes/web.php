@@ -23,10 +23,15 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::get('/singup', function () {
-    return view('singup');
-})->name('singup');
+Route::get('/signup', function () {
+    return view('signup');
+})->name('signup');
+
+Route::get('/login', function () {
+    return view('signup');
+})->name('signup');
+
 
 Route::get('/', [ ProductsController::class, 'products'])->name('index');
 
-Route::post("singup", [UsersController::class, "createuser"]);
+Route::post("/signup", [UsersController::class, "create"])->name("user.create");
