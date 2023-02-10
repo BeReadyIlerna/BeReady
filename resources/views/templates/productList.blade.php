@@ -1,10 +1,3 @@
-<div class="container">
-    <div class="row justify-content-center text-center">
-        <div class="header-popular">
-            <h3>Los más vendidos</h3>
-            <h2>Productos Destacados</h2>
-            <hr class="line-separator">
-        </div>
         <!-- Single Product -->
         @foreach ($products as $product)
             <div class="col-lg-3 col-md-6 col-sm-12 ">
@@ -28,6 +21,3 @@
                 </div>
             </div>
         @endforeach
-    </div>
-</div>
-</div>

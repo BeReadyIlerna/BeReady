@@ -35,7 +35,15 @@
 @section('body')
     <!-- Contenido -->
     <section id="products" class="section-products">
-        @include('templates.productList')
-
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="header-popular">
+                    <h3>Los más nuevos</h3>
+                    <h2>Novedades</h2>
+                    <hr class="line-separator">
+                </div>
+                @include('templates.productList')
+            </div>
+        </div>
     </section>
 @endsection

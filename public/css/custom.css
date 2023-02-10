@@ -27,7 +27,7 @@
 }
 
 .text-hover-white:hover {
-    background-color: var(--primarycolor);
+    background-color: var(--primarycolor) !important;
     color: white !important;
 }
 
