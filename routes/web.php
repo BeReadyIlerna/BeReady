@@ -26,6 +26,10 @@ Route::get('/signup', function () {
     return view('signup');
 })->name('signup');
 
+Route::get('/user', function () {
+    return view('user.user');
+})->name('user');
+
 Route::post("/signup", [UsersController::class, "create"])->name("user.create");
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
