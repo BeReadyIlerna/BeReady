@@ -25,7 +25,6 @@
 <body>
     @yield('navbar')
     @yield('banner')
-    @yield('productList')
     @yield('body')
     @yield('footer')
 </body>
