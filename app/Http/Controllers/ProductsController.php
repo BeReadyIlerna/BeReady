@@ -11,7 +11,7 @@ class ProductsController extends Controller
 {
     public function products()
     {
-        $products = Product::all();
+        $products = Product::latest()->take(8)->get();
         return view('index', @compact('products'));
     }
 
@@ -49,7 +49,9 @@ class ProductsController extends Controller
             $newProduct->description = $request->description;
             $newProduct->IVA = $request->iva;
             $newProduct->total = ($newProduct->price * ($newProduct->IVA / 100)) + $newProduct->price;
+
             $newProduct->category_id = $request->category;
+
             $newProduct->save();
 
             $imageName = "image-" . $newProduct->id . '.' . $request->image->extension();

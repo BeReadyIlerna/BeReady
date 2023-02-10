@@ -19,9 +19,10 @@ return new class extends Migration
             $table->float("price");
             $table->integer("stock");
             $table->text("description");
-            $table->string("image");
+            $table->string("image")->default(0);
             $table->float("IVA");
-            $table->float("total");    
+            $table->float("total");
+            $table->foreignId("category_id")->references("id")->on("categories"); 
             $table->timestamps();
         });
     }

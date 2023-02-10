@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,20 +15,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [ProductsController::class, 'products'])->name('index');
+
 Route::get('/login', function () {
     return view('login');
 })->name('login');
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
 
-Route::get('/newproduct', [ProductsController::class, 'showCategories'])->name('product.new');
+Route::get('/admin/newproduct', [ProductsController::class, 'showCategories'])->name('product.new');
 
 Route::get('/newcategory', function () {
     return view('newcategory');
 })->name('category.new');
 
-Route::get('/', [ProductsController::class, 'products'])->name('index');
+Route::get('/admin/newproduct', function () {
+    return view('admin.newproduct');
+})->name('product.new');
 
-Route::post('addProduct', [ProductsController::class, 'create'])->name('product.create');
+Route::post('/admin/addProduct', [ProductsController::class, 'create'])->name('product.create');
 
 Route::post('addCategory', [CategoriesController::class, 'create'])->name('category.create');
+
+Route::get('/{name}', [CategoriesController::class, 'category'])->name('category');
+

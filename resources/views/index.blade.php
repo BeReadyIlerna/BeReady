@@ -1,6 +1,7 @@
 @extends('templates.general')
 
 @section('banner')
+    <!-- TODO cambiar ruta de las imágenes -->
     <!--Carrusel de imágenes-->
     <div id="carouselId" class="carousel slide border-bottom" data-bs-ride="carousel">
         <ol class="carousel-indicators">
@@ -36,46 +37,37 @@
     <section id="products" class="section-products">
         <div class="container">
             <div class="row justify-content-center text-center">
-                <div class="col-md-8 col-lg-6">
-                    <div class="header-popular">
-                        <h3>Los más vendidos</h3>
-                        <h2>Productos Destacados</h2>
-                        <hr class="line-separator">
-                    </div>
+                <div class="header-popular">
+                    <h3>Los más vendidos</h3>
+                    <h2>Productos Destacados</h2>
+                    <hr class="line-separator">
                 </div>
-            </div>
-
-            <!-- Single Product -->
-            @foreach ($products as $product)
-            @if ($product->id === 1 || $product->id === 5)
-            <div class="row">
-            @endif
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div id="product-{{ $product->id }}" class="single-product">
-                        <div class="part-1 text-center">
-                            {{-- <span class="discount">40% descuento</span> --}}
-                            <img class="h-100 w-auto m-0" src={{ $product->image }} alt="imagen del producto">
-                            <ul>
-                                <li><i id="cart-{{ $product->id }}" class="bi bi-cart"
-                                        onclick="checkIcon('cart-{{ $product->id }}')"></i></li>
-                                <li><i id="heart-{{ $product->id }}" class="bi bi-suit-heart"
-                                        onclick="checkIcon('heart-{{ $product->id }}')"></i></li>
-                                <li><i class="bi bi-fullscreen" onclick="popupImage({{ $product->image }})"></i></li>
-                            </ul>
-                        </div>
-                        <div class="part-2">
-                            <h3 class="product-title">{{ $product->name }}</h3>
-                            {{-- <h4 class="product-old-price">49.99€</h4> --}}
-                            <h4 class="product-price">{{ $product->total }}€</h4>
+                <!-- Single Product -->
+                @foreach ($products as $product)
+                    <div class="col-lg-3 col-md-6 col-sm-12 ">
+                        <div id="product-{{ $product->id }}" class="single-product">
+                            <div class="part-1 text-center">
+                                {{-- <span class="discount">40% descuento</span> --}}
+                                <a href="product/{{$product->id}}"><img class="h-100 w-auto m-0" src={{ $product->image }} alt="imagen del producto"></a>
+                                <ul>
+                                    <li><i id="cart-{{ $product->id }}" class="bi bi-cart"
+                                            onclick="checkIcon('cart-{{ $product->id }}')"></i></li>
+                                    <li><i id="heart-{{ $product->id }}" class="bi bi-suit-heart"
+                                            onclick="checkIcon('heart-{{ $product->id }}')"></i></li>
+                                    <li><i class="bi bi-fullscreen" onclick="popupImage({{ $product->image }})"></i></li>
+                                </ul>
+                            </div>
+                            <div class="part-2">
+                                <h3 class="product-title">{{ $product->name }}</h3>
+                                {{-- <h4 class="product-old-price">49.99€</h4> --}}
+                                <h4 class="product-price">{{ $product->total }}€</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @if ($product->id === 4 || $product->id === 8)
+                @endforeach
             </div>
-            @endif
-            @endforeach
-
         </div>
+    </div>
 
     </section>
 @endsection

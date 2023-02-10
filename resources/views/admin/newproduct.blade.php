@@ -55,6 +55,7 @@
                     <label for="descripcion">Descripción <span class="text-danger">*</span></label>
                 </div>
 
+                <!-- TODO Poner Categorias de la BBDD -->
                 <div class="form-floating mb-3">
                     <select class="form-select" id="category" aria-label="Categoría" name="category">
                         @foreach ($categories as $category)
