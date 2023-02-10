@@ -29,4 +29,4 @@ Route::get('/admin/newproduct', function () {
 
 Route::post('/admin/addProduct', [ProductsController::class, 'create'])->name('product.create');
 
-Route::get('/{name}', [CategoriesController::class, 'category'])->name('category');
+Route::get('/{name}', [CategoriesController::class, 'categoryProducts'])->name('category');
