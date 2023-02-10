@@ -37,7 +37,7 @@
                                 Categorías</a>
                             <ul class="dropdown-menu products-open">
                             @foreach ($categories as $category)
-                                <li><a class="dropdown-item mx-0 px-2 d-flex text-hover-white" href="{{$category->name}}"><i
+                                <li><a class="dropdown-item mx-0 px-2 d-flex text-hover-white" href="/{{$category->name}}"><i
                                 class=""></i>{{$category->name}}</a></li>
                             @endforeach
                             </ul>
