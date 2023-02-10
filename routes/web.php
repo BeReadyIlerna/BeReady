@@ -18,18 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductsController::class, 'products'])->name('index');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+// Route::get('/login', function () {
+//     // return view('login');
+// })->name('login');
 
-
-Route::get('/signup', function () {
-    return view('signup');
-})->name('signup');
-
-//Route::get('/login', function () {
-  //  return view('signup');
-//})->name('registro');
+// Route::get('/signup', function () {
+//     return view('signup');
+// })->name('signup');
 
 Route::post("/signup", [UsersController::class, "create"])->name("user.create");
 
@@ -40,10 +35,6 @@ Route::get('/admin/newproduct', [ProductsController::class, 'showCategories'])->
 Route::get('/admin/newcategory', function () {
     return view('admin.newcategory');
 })->name('category.new');
-
-// Route::get('/admin/newproduct', function () {
-//     return view('admin.newproduct');
-// })->name('product.new');
 
 Route::post('/admin/addProduct', [ProductsController::class, 'create'])->name('product.create');
 
