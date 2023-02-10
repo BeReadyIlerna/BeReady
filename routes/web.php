@@ -29,10 +29,6 @@ Route::get('/admin/newcategory', function () {
     return view('admin.newcategory');
 })->name('category.new');
 
-// Route::get('/admin/newproduct', function () {
-//     return view('admin.newproduct');
-// })->name('product.new');
-
 Route::post('/admin/addProduct', [ProductsController::class, 'create'])->name('product.create');
 
 Route::post('/admin/addCategory', [CategoriesController::class, 'create'])->name('category.create');
