@@ -3,7 +3,7 @@
 @section('body')
     <!--Logo-->
     <div class="container d-grid justify-content-center">
-        <a href="/"><img class="login-logo" src="./img/beready-logo.png" alt="logo beready"></a>
+        <a href={{Route('index')}}><img class="login-logo" src="./img/beready-logo.png" alt="logo beready"></a>
     </div>
 
     <section class="p-4 border rounded mx-auto w-25 mt-5 mw-350">
