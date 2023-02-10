@@ -16,9 +16,9 @@
                        
                         <div class="col-lg-3 col-md-6 col-sm-12 ">
                             <div id="product-{{ $product->id }}" class="single-product">
-                                <div class="part-1 text-center">
+                                <div class="part-1 text-center bg-image hover-zoom">
                                     {{-- <span class="discount">40% descuento</span> --}}
-                                    <a href="product/{{$product->id}}"><img class="h-100 w-auto m-0" src={{ $product->image }} alt="imagen del producto"></a>
+                                    <a href="product/{{$product->id}}"><img class="h-100 w-auto m-0" src={{ URL::asset("img/" . $product->image) }} alt="imagen del producto"></a>
                                     <ul>
                                         <li><i id="cart-{{ $product->id }}" class="bi bi-cart"
                                                 onclick="checkIcon('cart-{{ $product->id }}')"></i></li>

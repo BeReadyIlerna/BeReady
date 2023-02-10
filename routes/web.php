@@ -25,17 +25,17 @@ Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name
 
 Route::get('/admin/newproduct', [ProductsController::class, 'showCategories'])->name('product.new');
 
-Route::get('/newcategory', function () {
-    return view('newcategory');
+Route::get('/admin/newcategory', function () {
+    return view('admin.newcategory');
 })->name('category.new');
 
-Route::get('/admin/newproduct', function () {
-    return view('admin.newproduct');
-})->name('product.new');
+// Route::get('/admin/newproduct', function () {
+//     return view('admin.newproduct');
+// })->name('product.new');
 
 Route::post('/admin/addProduct', [ProductsController::class, 'create'])->name('product.create');
 
-Route::post('addCategory', [CategoriesController::class, 'create'])->name('category.create');
+Route::post('/admin/addCategory', [CategoriesController::class, 'create'])->name('category.create');
 
 Route::get('/{name}', [CategoriesController::class, 'category'])->name('category');
 

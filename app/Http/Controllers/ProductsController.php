@@ -18,7 +18,7 @@ class ProductsController extends Controller
     public function showCategories()
     {
         $categories = Category::all();
-        return view('newproduct', @compact('categories'));
+        return view('admin.newproduct', @compact('categories'));
     }
 
     public function selectProduct($id)
