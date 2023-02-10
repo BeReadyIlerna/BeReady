@@ -30,6 +30,8 @@ Route::post("/signup", [UsersController::class, "create"])->name("user.create");
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
 
+Route::get('/{name}', [CategoriesController::class, 'categoryProducts'])->name('category');
+
 Route::get('/admin/newproduct', [ProductsController::class, 'showCategories'])->name('product.new');
 
 Route::get('/admin/newcategory', function () {
@@ -37,7 +39,5 @@ Route::get('/admin/newcategory', function () {
 })->name('category.new');
 
 Route::post('/admin/addProduct', [ProductsController::class, 'create'])->name('product.create');
-
-Route::get('/{name}', [CategoriesController::class, 'categoryProducts'])->name('category');
 
 Route::post('/admin/addCategory', [CategoriesController::class, 'create'])->name('category.create');

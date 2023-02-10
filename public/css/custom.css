@@ -270,7 +270,7 @@
 }
 
 .product-quantity-width{
-    width: 50px;
+    width: 50px !important;
 }
 
 input[type=number]::-webkit-inner-spin-button, 

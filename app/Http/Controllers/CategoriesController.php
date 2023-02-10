@@ -38,6 +38,6 @@ class CategoriesController extends Controller
     {
         $category = Category::where('name', $categoryName)->first();
         $products = Product::where('category_id', $category->id)->paginate(8);
-        return view('category', @compact('products', 'categoryName'));
+        return view('category', @compact('products', 'category'));
     }
 }

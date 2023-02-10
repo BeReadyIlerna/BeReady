@@ -7,7 +7,7 @@
             <div class="row justify-content-center text-center">
                 
                     <div class="header-popular">
-                        <h2>{{ucfirst($categoryName)}}</h2>
+                        <h2>{{ucfirst($category->name)}}</h2>
                         <hr class="line-separator">
                     </div>
                     <!-- Single Product -->
@@ -45,4 +45,10 @@
         </div>
 
     </section>
+
+    <section id="info" class="container text-center">
+        <h2>Aprende sobre {{ucfirst($category->name)}}</h2>
+        <p>{{$category->description}}</p>
+    </section>
+
 @endsection

@@ -36,9 +36,9 @@
                                 data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-star-fill"></i>
                                 Categorías</a>
                             <ul class="dropdown-menu products-open">
-                            @foreach ($categories as $category)
-                                <li><a class="dropdown-item mx-0 px-2 d-flex text-hover-white" href="/{{$category->name}}"><i
-                                class=""></i>{{$category->name}}</a></li>
+                            @foreach (\App\Models\Category::all() as $category)
+                                <li>
+                                <a class="dropdown-item px-2 text-hover-white" href="/{{$category->name}}"><i class="bi bi-tag-fill pr-2"></i> {{$category->name }} </a></li>
                             @endforeach
                             </ul>
                         </li>
