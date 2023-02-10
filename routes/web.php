@@ -23,10 +23,19 @@ Route::get('/login', function () {
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
 
-Route::get('/admin/newproduct', function () {
-    return view('admin.newproduct');
-})->name('product.new');
+Route::get('/admin/newproduct', [ProductsController::class, 'showCategories'])->name('product.new');
+
+Route::get('/admin/newcategory', function () {
+    return view('admin.newcategory');
+})->name('category.new');
+
+// Route::get('/admin/newproduct', function () {
+//     return view('admin.newproduct');
+// })->name('product.new');
 
 Route::post('/admin/addProduct', [ProductsController::class, 'create'])->name('product.create');
 
+Route::post('/admin/addCategory', [CategoriesController::class, 'create'])->name('category.create');
+
 Route::get('/{name}', [CategoriesController::class, 'category'])->name('category');
+
