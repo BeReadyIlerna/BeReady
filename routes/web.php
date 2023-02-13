@@ -26,10 +26,6 @@ Route::get('/signup', function () {
     return view('signup');
 })->name('signup');
 
-Route::get('/user', function () {
-    return view('user.user');
-})->name('user');
-
 Route::post("/signup", [UsersController::class, "create"])->name("user.create");
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
@@ -46,4 +42,19 @@ Route::prefix('/admin')->namespace('App\\Http\\Controllers\\ProductsController')
     Route::post('/addProduct', [ProductsController::class, 'create'])->name('product.create');
 
     Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create');
+});
+
+Route::prefix('/user')->namespace('App\\Http\\Controllers\\UsersController')->group(function () {
+
+    Route::get('/myData', function () {
+        return view('user.myData');
+    })->name('user');
+
+    Route::get('/myOrders', function () {
+        return view('user.order');
+    })->name('user.orders');
+
+    Route::get('/support', function () {
+        return view('user.support');
+    })->name('user.support');
 });
