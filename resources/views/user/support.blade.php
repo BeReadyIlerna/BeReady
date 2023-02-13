@@ -3,7 +3,7 @@
 @section('userContent')
     <section class="container">
         <h1>Contacta con nosotros</h1>
-        <form class="row g-3 needs-validation" novalidate>
+        <form class="row g-3 needs-validation py-5">
           <div class="col-md-12">
             <label for="validationCustom01" class="form-label">Motivo de consulta</label>
             <input type="text" class="form-control" id="validationCustom01" required>
