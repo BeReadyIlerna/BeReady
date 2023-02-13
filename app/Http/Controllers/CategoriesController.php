@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
+
     public function create(Request $request)
     {
         $request->validate([
@@ -33,10 +34,10 @@ class CategoriesController extends Controller
         }
     }
 
-    public function category($categoryName)
+    public function categoryProducts($categoryName)
     {
         $category = Category::where('name', $categoryName)->first();
         $products = Product::where('category_id', $category->id)->paginate(8);
-        return view('category', @compact('products', 'categoryName'));
+        return view('category', @compact('products', 'category'));
     }
 }

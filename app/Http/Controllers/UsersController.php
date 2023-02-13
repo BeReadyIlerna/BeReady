@@ -56,7 +56,6 @@ class UsersController extends Controller
          $errors = $request->errors();
          return back()->with('errors', $errors);
       }
-
       
    }
 }
