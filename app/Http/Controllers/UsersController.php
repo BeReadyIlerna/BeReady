@@ -25,8 +25,7 @@ class UsersController extends Controller
          "province"=>"required",
          "town"=>"required",
          "zipcode"=>"required",
-         "observation"=>"required","max:255"
-
+         // "observation"=>"required","max:255"
       ]);
 
       $errors = $request->has('errors');
@@ -37,7 +36,6 @@ class UsersController extends Controller
          $address->town = $request->town;
          $address->province = $request->province;
          $address->zipcode = $request->zipcode;
-         $address->observation = $request->observation;
 
          $address->save();
 
