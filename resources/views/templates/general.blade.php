@@ -49,18 +49,12 @@
                         <li class="nav-item dropdown d-flex mx-md-5">
                             <a class="nav-link dropdown-toggle text-black text-hover-white" href="#"
                                 data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-star-fill"></i>
-                                Productos</a>
+                                Categorías</a>
                             <ul class="dropdown-menu products-open">
-                                <li><a class="dropdown-item mx-0 px-2 d-flex text-hover-white" href="#"><i
-                                            class=""></i>Productos 1</a></li>
-                                <li><a class="dropdown-item mx-0 px-2 d-flex text-hover-white" href="#"><i
-                                            class=""></i>Productos 2</a></li>
-                                <li><a class="dropdown-item mx-0 px-2 d-flex text-hover-white" href="#"><i
-                                            class=""></i>Productos 3</a></li>
-                                <li><a class="dropdown-item mx-0 px-2 d-flex text-hover-white" href="#"><i
-                                            class=""></i>Productos 4</a></li>
-                                <li><a class="dropdown-item mx-0 px-2 d-flex text-hover-white" href="#"><i
-                                            class=""></i>Productos 5</a></li>
+                            @foreach (\App\Models\Category::all() as $category)
+                                <li>
+                                <a class="dropdown-item px-2 text-hover-white" href="/{{$category->name}}"><i class="bi bi-tag-fill pr-2"></i> {{$category->name }} </a></li>
+                            @endforeach
                             </ul>
                         </li>
 
