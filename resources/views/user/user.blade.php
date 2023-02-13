@@ -13,19 +13,8 @@
                         id="menu">
 
                         <li class="py-2">
-                            <a href="#submenu1" data-bs-toggle="collapse" class="text-white px-0 align-middle h5">
-                                <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Mi cuenta</span>
-                            </a>
-                            <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="#" class="text-white px-0"> <span class="d-none d-sm-inline">Mis datos</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-white px-0"> <span class="d-none d-sm-inline">Piensa coño piensa</span>
-                                    </a>
-                                </li>
-                            </ul>
+                            <a href="#" data-bs-toggle="collapse" class="text-white px-0 align-middle h5">
+                                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Mis datos</span></a>
                         </li>
                         <li class="py-2">
                             <a href="#submenu2" data-bs-toggle="collapse" class="text-white px-0 align-middle h5">
@@ -44,10 +33,10 @@
                                 <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Ayuda</span> </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="#" class="text-white px-0"> <span class="d-none d-sm-inline">Boton de Enter</span></a>
+                                    <a href="#" class="text-white px-0"> <span class="d-none d-sm-inline">Atención al cliente</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-white px-0"> <span class="d-none d-sm-inline">Gigante</span></a>
+                                    <a href="#" class="text-white px-0"> <span class="d-none d-sm-inline">Cerrar sesión</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -72,7 +61,7 @@
                 </div>
             </div>
             <div class="col py-3">
-                Content area...
+                @yield('userContent')
             </div>
         </div>
     </div>
