@@ -19,12 +19,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ProductsController::class, 'products'])->name('index');
 
 Route::get('/login', function () {
-    return view('login');
-})->name('login');
+     return view('login');
+ })->name('login');
+
+
+
 
 Route::get('/signup', function () {
     return view('signup');
 })->name('signup');
+
 
 Route::post("/signup", [UsersController::class, "create"])->name("user.create");
 
