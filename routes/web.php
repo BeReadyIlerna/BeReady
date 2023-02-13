@@ -19,16 +19,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ProductsController::class, 'products'])->name('index');
 
 Route::get('/login', function () {
-    return view('login');
-})->name('login');
+     return view('login');
+ })->name('login');
+
+
+
 
 Route::get('/signup', function () {
     return view('signup');
 })->name('signup');
 
-Route::get('/user', function () {
-    return view('user.user');
-})->name('user');
 
 Route::post("/signup", [UsersController::class, "create"])->name("user.create");
 
@@ -36,12 +36,29 @@ Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name
 
 Route::get('/{name}', [CategoriesController::class, 'categoryProducts'])->name('category');
 
-Route::get('/admin/newproduct', [ProductsController::class, 'showCategories'])->name('product.new');
+Route::prefix('/admin')->namespace('App\\Http\\Controllers\\ProductsController')->group(function () {
+    Route::get('/newproduct', [ProductsController::class, 'showCategories'])->name('product.new');
 
-Route::get('/admin/newcategory', function () {
-    return view('admin.newcategory');
-})->name('category.new');
+    Route::get('/newcategory', function () {
+        return view('admin.newcategory');
+    })->name('category.new');
 
-Route::post('/admin/addProduct', [ProductsController::class, 'create'])->name('product.create');
+    Route::post('/addProduct', [ProductsController::class, 'create'])->name('product.create');
 
-Route::post('/admin/addCategory', [CategoriesController::class, 'create'])->name('category.create');
+    Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create');
+});
+
+Route::prefix('/user')->namespace('App\\Http\\Controllers\\UsersController')->group(function () {
+
+    Route::get('/myData', function () {
+        return view('user.myData');
+    })->name('user');
+
+    Route::get('/myOrders', function () {
+        return view('user.order');
+    })->name('user.orders');
+
+    Route::get('/support', function () {
+        return view('user.support');
+    })->name('user.support');
+});
