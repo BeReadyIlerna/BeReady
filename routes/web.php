@@ -26,7 +26,6 @@ Route::get('/signup', function () {
     return view('auth.signup');
 })->name('signup');
 
-
 Route::post("/signup", [UsersController::class, "create"])->name("user.create");
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
@@ -53,3 +52,5 @@ Route::prefix('/user')->group(function () {
 
     Route::get('/support', [UsersController::class, 'supportView'])->name('user.support');
 });
+
+Route::post('logout', [UsersController::class, 'logout'])->name('logout');
