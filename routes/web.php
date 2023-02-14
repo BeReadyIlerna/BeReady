@@ -19,11 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ProductsController::class, 'products'])->name('index');
 
 Route::get('/login', function () {
-     return view('auth/login');
+     return view('auth.login');
  })->name('login');
 
 Route::get('/signup', function () {
-    return view('auth/signup');
+    return view('auth.signup');
 })->name('signup');
 
 

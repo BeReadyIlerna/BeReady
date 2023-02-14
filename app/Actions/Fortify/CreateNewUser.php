@@ -49,7 +49,7 @@ class CreateNewUser implements CreatesNewUsers
         $address->zipcode = $input['zipcode'];
         $address->save();
 
-        $user = User::create([
+        return User::create([
             'name' => $input['name'],
             'surname' => $input['surname'],
             'email' => $input['email'],
@@ -57,7 +57,5 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
             'address_id' => $address->id
         ]);
-
-        return $user;
     }
 }
