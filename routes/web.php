@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ProductsController::class, 'products'])->name('index');
 
 Route::get('/login', function () {
-     return view('auth.login');
- })->name('login');
+    return view('auth.login');
+})->name('login');
 
 Route::get('/signup', function () {
     return view('auth.signup');
@@ -58,5 +58,3 @@ Route::prefix('/user')->namespace('App\\Http\\Controllers\\UsersController')->gr
         return view('user.support');
     })->name('user.support');
 });
-
-Route::post('logout', [UsersController::class, 'logout'])->name('logout');
