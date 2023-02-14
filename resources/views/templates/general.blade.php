@@ -69,19 +69,32 @@
                                             class="d-flex img-cart" src="./img/productos/satisfyer-min.webp">29.99€ -
                                         Satisfyer Pro 2</a>
                                 </li>
-                                <li id="btn-gocart" hidden="true" class="text-center">
+                                <li id="btn-gocart" hidden="false" class="text-center">
                                     <a class="link-view-cart" href="./html/cartPage.html">Ver mi cesta</a>
                                 </li>
                             </ul>
                         </li>
 
-                        <div>
-                            <li class="nav-item d-flex position-relative mx-md-5">
-                                <a class="nav-link text-black text-hover-white" href={{ Route('login') }}
-                                    aria-expanded="false"><i class="bi bi-person-fill"></i> Mi cuenta</a>
-                            </li>
-                        </div>
+                        @guest
+                            <div>
+                                <li class="nav-item d-flex position-relative mx-md-5">
+                                    <a class="nav-link text-black text-hover-white" href={{ Route('login') }}
+                                        aria-expanded="false"><i class="bi bi-person-fill"></i> Mi cuenta</a>
+                                </li>
+                            </div>
+                        @endguest
+                        @auth
 
+                            <li class="nav-item mx-md-5">
+                                <a class="nav-link active text-hover-white" aria-current="page" href={{ route('user') }}><i
+                                        class="bi bi-house-fill"></i> Panel de usuario</a>
+                            </li>
+
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button class="btn btn-secondary btn-sm" type="submit">Logout</button>
+                            </form>
+                        @endauth
                     </ul>
                 </div>
             </div>
