@@ -90,7 +90,7 @@
                                     USUARIO"</a>
                                 <ul class="dropdown-menu products-open">
                                     <li>
-                                        <a class="dropdown-item px-2 text-hover-white" href="{{ route('user') }}"><i
+                                        <a class="dropdown-item px-2 text-hover-white" href="{{ route('user.data') }}"><i
                                                 class="bi bi-gear-fill"></i> Panel de usuario</a>
                                     </li>
                                     <li>
