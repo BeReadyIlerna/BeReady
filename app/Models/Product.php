@@ -19,6 +19,6 @@ class Product extends Model
     public function prodshoppingcart(){
         return $this->belongsToMany(Shoppingcart::class);
     }
-
+    
    
 }

@@ -85,12 +85,11 @@
                         @endguest
                         @auth
                             <li class="nav-item dropdown d-flex mx-md-5">
-                                <a class="nav-link dropdown-toggle text-black text-hover-white" href="#"
-                                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i>"NOMBRE DE
-                                    USUARIO"</a>
+                                <a class="nav-link dropdown-toggle text-primary text-hover-white" href="#"
+                                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i> {{$user->name}}</a>
                                 <ul class="dropdown-menu products-open">
                                     <li>
-                                        <a class="dropdown-item px-2 text-hover-white" href="{{ route('user') }}"><i
+                                        <a class="dropdown-item px-2 text-hover-white" href="{{ route('user.data') }}"><i
                                                 class="bi bi-gear-fill"></i> Panel de usuario</a>
                                     </li>
                                     <li>
@@ -100,7 +99,6 @@
                                     </li>
                                 </ul>
                             </li>
-
                             <form action="{{ route('logout') }}" method="POST" id="formLogout">
                                 @csrf
                             </form>
