@@ -1,19 +1,5 @@
 @extends('templates.template')
 
-
-@if (Route::has('login'))
-<div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-    @auth
-        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-    @else
-        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-        @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-        @endif
-    @endauth
-</div>
-@endif
 @section('navbar')
     <header id="header-pc" class="sticky-lg-top">
         <!-- Logo Navbar PC & Tablet -->
@@ -51,10 +37,12 @@
                                 data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-star-fill"></i>
                                 Categorías</a>
                             <ul class="dropdown-menu products-open">
-                            @foreach (\App\Models\Category::all() as $category)
-                                <li>
-                                <a class="dropdown-item px-2 text-hover-white" href="/{{$category->name}}"><i class="bi bi-tag-fill pr-2"></i> {{$category->name }} </a></li>
-                            @endforeach
+                                @foreach (\App\Models\Category::all() as $category)
+                                    <li>
+                                        <a class="dropdown-item px-2 text-hover-white" href="/{{ $category->name }}"><i
+                                                class="bi bi-tag-fill pr-2"></i> {{ $category->name }} </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </li>
 
@@ -89,7 +77,7 @@
 
                         <div>
                             <li class="nav-item d-flex position-relative mx-md-5">
-                                <a class="nav-link text-black text-hover-white" href={{ route('login') }}
+                                <a class="nav-link text-black text-hover-white" href={{ Route('login') }}
                                     aria-expanded="false"><i class="bi bi-person-fill"></i> Mi cuenta</a>
                             </li>
                         </div>
@@ -162,7 +150,7 @@
 
         <!-- Copyright -->
         <div class="text-center p-4">
-            © 2022 Copyright:
+            © 2023 Copyright:
             <a class="text-reset fw-bold" href="https://github.com/BeReadyIlerna/BeReady">BeReady</a>
         </div>
         <!-- Copyright -->

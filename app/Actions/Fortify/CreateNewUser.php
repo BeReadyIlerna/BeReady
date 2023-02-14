@@ -2,7 +2,11 @@
 
 namespace App\Actions\Fortify;
 
+use App\Http\Controllers;
 use App\Models\User;
+use App\Models\Address;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -21,6 +25,7 @@ class CreateNewUser implements CreatesNewUsers
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
+            'surname' =>  ['required', 'string', 'max:255'],
             'email' => [
                 'required',
                 'string',
@@ -28,13 +33,29 @@ class CreateNewUser implements CreatesNewUsers
                 'max:255',
                 Rule::unique(User::class),
             ],
+            "phone" => ["required", "numeric", "digits:9"],
             'password' => $this->passwordRules(),
+            "way_name" => ["required"],
+            "province" => ["required"],
+            "town" => ["required"],
+            "zipcode" => ["required"]
         ])->validate();
+
+        $address = new Address();
+        $address->way_type = $input['way_type'];
+        $address->way_name = $input['way_name'];
+        $address->province = $input['province'];
+        $address->town = $input['town'];
+        $address->zipcode = $input['zipcode'];
+        $address->save();
 
         return User::create([
             'name' => $input['name'],
+            'surname' => $input['surname'],
             'email' => $input['email'],
+            'phone' => $input['phone'],
             'password' => Hash::make($input['password']),
+            'address_id' => $address->id
         ]);
     }
 }

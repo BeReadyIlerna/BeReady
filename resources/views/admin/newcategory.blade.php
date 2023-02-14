@@ -2,7 +2,7 @@
 
 @section('body')
     <div class="div-body col-12">
-        <div class="py-5 justify-content-center container col-12 col-lg-6">
+        <div class="p-4 border rounded my-5 py-5 justify-content-center container col-12 col-lg-6">
             <div class="text-center py-3">
                 <h2>Crear nueva categoría</h2>
             </div>
@@ -27,13 +27,13 @@
 
                 <div class="form-floating mb-3 mt-3">
                     <input class="form-control" id="name" type="text" name="name" placeholder="Nombre"
-                        data-sb-validations="required" value="{{ old('name') }}" />
+                        data-sb-validations="required" value="{{ old('name') }}" required />
                     <label for="nombre">Nombre<span class="text-danger">*</span></label>
                 </div>
 
                 <div class="form-floating mb-3">
                     <textarea class="form-control desc-form" id="description" type="text" name="description" placeholder="Descripción"
-                        data-sb-validations="required" value="{{ old('description') }}"></textarea>
+                        data-sb-validations="required" value="{{ old('description') }}" required></textarea>
                     <label for="descripcion">Descripción <span class="text-danger">*</span></label>
                 </div>
 
