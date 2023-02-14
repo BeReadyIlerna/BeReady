@@ -28,13 +28,12 @@
                                     <a href={{ route('user.support') }} class="text-white px-0"> <span class="d-none d-sm-inline">Atención al cliente</span></a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('logout') }}" class="text-white px-0"
-                                    > <span class="d-none d-sm-inline">Cerrar sesión</span></a>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="button-as-text text-white">Cerrar sesión</button>
+                                    </form>
                                 </li>
                             </ul>
-                            <form action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
                         </li>
                     </ul>
                     <hr>

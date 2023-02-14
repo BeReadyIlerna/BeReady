@@ -284,3 +284,10 @@ input[type=number]::-webkit-outer-spin-button {
 .desc-form {
     height: 10rem !important;
 }
+
+/** USER PANEL */
+.button-as-text{
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+}

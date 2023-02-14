@@ -6,7 +6,7 @@
         <h3>Bienvenido {{ $user->name }}</h3>
 
         <!--PERSONAL DATA-->
-        <form class="row g-3 needs-validation py-5" novalidate>
+        <form action="" class="row g-3 needs-validation py-5">
             <h4>Datos Personales</h4>
             <div class="col-sm-12 col-md-6">
                 <label for="validationCustom01" class="form-label">Nombre</label>
@@ -49,7 +49,7 @@
         <hr>
 
         <!--PASSWORD-->
-        <form class="row g-3 needs-validation py-5">
+        <form action="" class="row g-3 needs-validation py-5">
             <h4>Contraseña</h4>
             <div class="col-sm-12 col-md-4">
                 <label for="validationCustom01" class="form-label">Antigua contraseña</label>

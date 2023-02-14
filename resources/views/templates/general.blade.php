@@ -86,7 +86,7 @@
                         @auth
 
                             <li class="nav-item mx-md-5">
-                                <a class="nav-link active text-hover-white" aria-current="page" href={{ route('user') }}><i
+                                <a class="nav-link active text-hover-white" aria-current="page" href={{ route('user.data') }}><i
                                         class="bi bi-house-fill"></i> Panel de usuario</a>
                             </li>
 
