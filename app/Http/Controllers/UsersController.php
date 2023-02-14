@@ -23,4 +23,5 @@ class UsersController extends Controller
       $user = User::findOrFail(Auth::id());
       return view('user.support', @compact('user'));
    }
+
 }

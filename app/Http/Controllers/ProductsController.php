@@ -4,15 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
     public function products()
     {
         $products = Product::latest()->take(8)->get();
-        return view('index', @compact('products'));
+
+        if (Auth::check()) {
+            $user = User::findOrFail(Auth::id());
+            return view('index', @compact('products', 'user'));
+        } else {
+            return view('index', @compact('products'));
+        }
+        // $user = User::findOrFail(Auth::id());
+        // return view('templates.general', @compact('user'));
+
     }
 
     public function showCategories()
