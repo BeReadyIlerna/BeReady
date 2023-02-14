@@ -84,15 +84,25 @@
                             </div>
                         @endguest
                         @auth
-
-                            <li class="nav-item mx-md-5">
-                                <a class="nav-link active text-hover-white" aria-current="page" href={{ route('user.data') }}><i
-                                        class="bi bi-house-fill"></i> Panel de usuario</a>
+                            <li class="nav-item dropdown d-flex mx-md-5">
+                                <a class="nav-link dropdown-toggle text-black text-hover-white" href="#"
+                                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i>"NOMBRE DE
+                                    USUARIO"</a>
+                                <ul class="dropdown-menu products-open">
+                                    <li>
+                                        <a class="dropdown-item px-2 text-hover-white" href="{{ route('user') }}"><i
+                                                class="bi bi-gear-fill"></i> Panel de usuario</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item px-2 text-hover-white" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('formLogout').submit();"><i
+                                                class="bi bi-x-square-fill"></i> {{ __('Logout') }}</a>
+                                    </li>
+                                </ul>
                             </li>
 
-                            <form method="POST" action="{{ route('logout') }}">
+                            <form action="{{ route('logout') }}" method="POST" id="formLogout">
                                 @csrf
-                                <button class="btn btn-secondary btn-sm" type="submit">Logout</button>
                             </form>
                         @endauth
                     </ul>
