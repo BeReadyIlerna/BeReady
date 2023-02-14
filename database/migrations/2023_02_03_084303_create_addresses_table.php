@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string("town");
             $table->string("province");
             $table->string("zipcode");
-            $table->text("observation")->nullable();
             $table->timestamps();
         });
     }

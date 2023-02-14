@@ -30,7 +30,8 @@ class User extends Model
          'surname',
          'email',
          'phone',
-         'password'
+         'password',
+         'address_id'
      ];
  
      /**

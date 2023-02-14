@@ -24,6 +24,6 @@ class Address extends Model
         'way_name',
         'town',
         'province',
-        'zipcode',
+        'zipcode'
     ];
 }
