@@ -33,7 +33,7 @@ Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name
 
 Route::get('/{name}', [CategoriesController::class, 'categoryProducts'])->name('category');
 
-Route::prefix('/admin')->namespace('App\\Http\\Controllers\\ProductsController')->group(function () {
+Route::prefix('/admin')->group(function () {
     Route::get('/newproduct', [ProductsController::class, 'showCategories'])->name('product.new');
 
     Route::get('/newcategory', function () {
@@ -45,17 +45,11 @@ Route::prefix('/admin')->namespace('App\\Http\\Controllers\\ProductsController')
     Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create');
 });
 
-Route::prefix('/user')->namespace('App\\Http\\Controllers\\UsersController')->group(function () {
+Route::prefix('/user')->group(function () {
 
-    Route::get('/myData', function () {
-        return view('user.myData');
-    })->name('user');
+    Route::get('/myData', [UsersController::class, 'showData'])->name('user.data');
 
-    Route::get('/myOrders', function () {
-        return view('user.order');
-    })->name('user.orders');
+    Route::get('/myOrders', [UsersController::class, 'showData'])->name('user.orders');
 
-    Route::get('/support', function () {
-        return view('user.support');
-    })->name('user.support');
+    Route::get('/support', [UsersController::class, 'supportView'])->name('user.support');
 });
