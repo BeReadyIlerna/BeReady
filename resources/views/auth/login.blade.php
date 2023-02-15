@@ -8,6 +8,16 @@
                 <h2>Iniciar Sesión</h2>
             </div>
 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <form id="loginForm" action="" method="POST">
                 @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
 

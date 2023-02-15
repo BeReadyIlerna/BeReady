@@ -2,11 +2,8 @@
 
 namespace App\Actions\Fortify;
 
-use App\Http\Controllers;
 use App\Models\User;
 use App\Models\Address;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -24,18 +21,19 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
-            'surname' =>  ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:0', 'max:255'],
+            'surname' =>  ['required', 'string', 'min:0', 'max:255'],
             'email' => [
                 'required',
                 'string',
                 'email',
+                'min:0',
                 'max:255',
                 Rule::unique(User::class),
             ],
             "phone" => ["required", "numeric", "digits:9"],
             'password' => $this->passwordRules(),
-            "way_name" => ["required"],
+            "way_name" => ["required", "min:0", "max:255"],
             "province" => ["required"],
             "town" => ["required"],
             "zipcode" => ["required"]

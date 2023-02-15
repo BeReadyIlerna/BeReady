@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ProductsController extends Controller
 {
@@ -40,35 +42,34 @@ class ProductsController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:products,name|string|min:4|max:255',
-            'price' => 'required|numeric|min:0',
-            'stock' => 'required|integer|min:0',
-            'description' => 'required|string|min:10|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
-            'iva' => 'required|integer|min:0',
-            'category' => 'required'
+        'name' => 'required|unique:products,name|string|min:4|max:255',
+        'price' => 'required|numeric|min:0',
+        'stock' => 'required|integer|min:0',
+        'description' => 'required|string|min:10|max:255',
+        'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+        'iva' => 'required|integer|min:0',
+        'category' => 'required'
         ]);
 
         $errors = $request->has('errors');
 
         if (!$errors) {
-            $newProduct = new Product;
-            $newProduct->name = $request->name;
-            $newProduct->price = $request->price;
-            $newProduct->stock = $request->stock;
-            $newProduct->description = $request->description;
-            $newProduct->IVA = $request->iva;
-            $newProduct->total = ($newProduct->price * ($newProduct->IVA / 100)) + $newProduct->price;
+        $product = new Product;
+        $product->name = $request['name'];
+        $product->price = $request['price'];
+        $product->stock = $request['stock'];
+        $product->description = $request['description'];
+        $product->IVA = $request['iva'];
+        $product->total = ($request['price'] * ($request['iva'] / 100)) + $request['price'];
+        $product->category_id = $request['category'];
 
-            $newProduct->category_id = $request->category;
+        $product->save();
 
-            $newProduct->save();
+        $imageName = "image-" . $product->id . '.' . $request->image->extension();
+        $request->image->move(public_path('img'), $imageName);
+        $product->image = $imageName;
 
-            $imageName = "image-" . $newProduct->id . '.' . $request->image->extension();
-            $request->image->move(public_path('img'), $imageName);
-            $newProduct->image = $imageName;
-
-            $newProduct->save();
+        $product->save();
 
             return back()->with('message', 'Producto añadido correctamente');
         } else {
