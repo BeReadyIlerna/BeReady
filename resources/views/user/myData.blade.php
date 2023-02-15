@@ -4,30 +4,30 @@
     <section class="container">
         <h1>Mis Datos</h1>
         <h3>Bienvenido {{ $user->name }}</h3>
-
+        
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <!--PERSONAL DATA-->
         <form action="{{ route('user-profile-information.update') }}" class="row g-3 needs-validation py-5" method="POST">
             @method('PUT')
             @csrf
             <h4>Datos Personales</h4>
-            @if (session('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
-            @endif
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
             <div class="col-sm-12 col-md-6">
                 <label for="validationCustom01" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="validationCustom01" name="name"
-                    value="{{ $user->name }}" required>
+                <input type="text" class="form-control" id="validationCustom01" name="name" value="{{ $user->name }}"
+                    required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -66,18 +66,20 @@
         <hr>
 
         <!--PASSWORD-->
-        <form action="" class="row g-3 needs-validation py-5">
+        <form action="{{ route('user-password.update') }}" class="row g-3 needs-validation py-5" method="POST">
+            @method('PUT')
+            @csrf
             <h4>Contraseña</h4>
             <div class="col-sm-12 col-md-4">
                 <label for="validationCustom01" class="form-label">Antigua contraseña</label>
-                <input type="password" class="form-control" id="validationCustom01" required>
+                <input type="password" class="form-control" id="validationCustom01" name="current_password" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
             </div>
             <div class="col-md-4">
                 <label for="validationCustom02" class="form-label">Nueva contraseña</label>
-                <input type="password" class="form-control" id="validationCustom02" required>
+                <input type="password" class="form-control" id="validationCustom02" name="password" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -85,7 +87,8 @@
             <div class="col-md-4">
                 <label for="validationCustomUsername" class="form-label">Repetir contraseña</label>
                 <div class="input-group">
-                    <input type="password" class="form-control" id="validationCustom02" required>
+                    <input type="password" class="form-control" id="validationCustom02" name="password_confirmation"
+                        required>
                     <div class="invalid-feedback">
                         Please choose a username.
                     </div>
