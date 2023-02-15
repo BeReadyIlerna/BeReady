@@ -4,7 +4,72 @@
     <section class="container">
         <h1>Mis Datos</h1>
         <h3>Bienvenido {{ $user->name }}</h3>
-        
+
+        <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+            <div class='modal-dialog'>
+                <div class='modal-content'>
+                    <form action="{{ route('user.adressUpdate') }}" class="row g-3 needs-validation py-5"
+                        method="POST">
+                        @method('PUT')
+                        @csrf
+                        <div class='modal-header'>
+                            <h1 class='modal-title fs-5' id='exampleModalLabel'>Dirección</h1>
+                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                        </div>
+                        <div class='modal-body'>
+                                <div class="form-floating mb-3 col-12">
+                                    <select class="form-select" id="way_type" aria-label="Tipo de vía" name="way_type"
+                                        required>
+                                        <option value="street" {{ old('way_type') == 'street' ? 'selected' : '' }}>
+                                            Calle
+                                        </option>
+                                        <option value="avenue" {{ old('way_type') == 'avenue' ? 'selected' : '' }}>
+                                            Avenida
+                                        </option>
+                                        <option value="square" {{ old('way_type') == 'square' ? 'selected' : '' }}>
+                                            Plaza
+                                        </option>
+                                    </select>
+                                    <label for="way_type" class="mx-2">Tipo de vía<span
+                                            class="text-danger">*</span></label>
+                                </div>
+
+                                <div class="form-floating mb-3 col-12">
+                                    <input class="form-control" id="way_name" type="text" name="way_name"
+                                        placeholder="Tipo de vía" data-sb-validations="required"
+                                        value="{{$address->way_name}}" required />
+                                    <label for="way_name" class="mx-2">Nombre de vía<span
+                                            class="text-danger">*</span></label>
+                                </div>
+
+                                <div class="form-floating mb-3 col-12">
+                                    <input class="form-control" id="province" type="text" name="province" data-sb-validations="required" value="{{$address->province}}"
+                                        required />
+                                    <label for="province" class="mx-2">Provincia<span class="text-danger">*</span></label>
+                                </div>
+                                <div class="form-floating mb-3 col-12">
+                                    <input class="form-control" id="town" type="text" name="town"
+                                        placeholder="Municipio" data-sb-validations="required" value="{{$address->town}}"
+                                        required />
+                                    <label for="town" class="mx-2">Municipio<span class="text-danger">*</span></label>
+                                </div>
+                                <div class="form-floating mb-3 col-12">
+                                    <input class="form-control" id="zipcode" type="text" name="zipcode"
+                                        placeholder="Código Postal" data-sb-validations="required"
+                                        value="{{$address->zipcode}}" required />
+                                    <label for="zipcode" class="mx-2">Código Postal<span
+                                            class="text-danger">*</span></label>
+                                </div>
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='submit' class='btn btn-primary' data-bs-dismiss='modal'>Aceptar</button>
+                            <button type='button' class='btn btn-danger' data-bs-dismiss='modal'>Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         @if (session('message'))
             <div class="alert alert-success">
                 {{ session('message') }}
@@ -26,8 +91,8 @@
             <h4>Datos Personales</h4>
             <div class="col-sm-12 col-md-6">
                 <label for="validationCustom01" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="validationCustom01" name="name" value="{{ $user->name }}"
-                    required>
+                <input type="text" class="form-control" id="validationCustom01" name="name"
+                    value="{{ $user->name }}" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -108,7 +173,8 @@
                 <p class="col-md-6">
                     {{ $address->way_name . ', ' . $address->town . ', ' . $address->province . ', ' . $address->zipcode }}
                 </p>
-                <a href="#"><button type="button" class="btn btn-primary">Editar</button></a>
+                <button type="button" data-bs-toggle='modal' data-bs-target='#exampleModal'
+                    class="btn btn-primary">Editar</button>
             </div>
         </div>
     </section>

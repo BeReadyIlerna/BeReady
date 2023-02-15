@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
@@ -47,6 +48,7 @@ Route::prefix('/admin')->group(function () {
 Route::prefix('/user')->group(function () {
 
     Route::get('/myData', [UsersController::class, 'showData'])->name('user.data');
+    Route::put('/adressUpdate', [AddressesController::class, 'update'])->name('user.adressUpdate');
 
     Route::get('/myOrders', [UsersController::class, 'showData'])->name('user.orders');
 
