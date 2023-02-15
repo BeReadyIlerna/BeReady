@@ -6,19 +6,36 @@
         <h3>Bienvenido {{ $user->name }}</h3>
 
         <!--PERSONAL DATA-->
-        <form action="" class="row g-3 needs-validation py-5">
+        <form action="{{ route('user-profile-information.update') }}" class="row g-3 needs-validation py-5" method="POST">
+            @method('PUT')
+            @csrf
             <h4>Datos Personales</h4>
+            @if (session('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+            @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="col-sm-12 col-md-6">
                 <label for="validationCustom01" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="validationCustom01" placeholder="{{ $user->name }}" required>
+                <input type="text" class="form-control" id="validationCustom01" name="name"
+                    value="{{ $user->name }}" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="validationCustom02" class="form-label">Apellidos</label>
-                <input type="text" class="form-control" id="validationCustom02" placeholder="{{ $user->surname }}"
-                    required>
+                <input type="text" class="form-control" id="validationCustom02" name="surname"
+                    value="{{ $user->surname }}" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -26,8 +43,8 @@
             <div class="col-sm-12 col-md-6">
                 <label for="validationCustomUsername" class="form-label">Email</label>
                 <div class="input-group">
-                    <input type="email" class="form-control" id="validationCustom02" placeholder="{{ $user->email }}"
-                        required>
+                    <input type="email" class="form-control" id="validationCustom02" name="email"
+                        value="{{ $user->email }}" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -35,10 +52,10 @@
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="validationCustom03" class="form-label">Teléfono</label>
-                <input type="tel" class="form-control" id="validationCustom03" placeholder="{{ $user->phone }}"
-                    required>
+                <input type="tel" class="form-control" id="validationCustom03" name="phone"
+                    value="{{ $user->phone }}" required>
                 <div class="invalid-feedback">
-                    Please provide a valid city.
+                    Please provide a valid number.
                 </div>
             </div>
             <div class="col-12">
