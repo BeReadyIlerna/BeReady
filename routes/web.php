@@ -58,4 +58,8 @@ Route::prefix('/user')->namespace('App\\Http\\Controllers\\UsersController')->gr
     Route::get('/support', function () {
         return view('user.support');
     })->name('user.support');
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 });
