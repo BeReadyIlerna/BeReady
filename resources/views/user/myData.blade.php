@@ -8,8 +8,7 @@
         <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
             <div class='modal-dialog'>
                 <div class='modal-content'>
-                    <form action="{{ route('user.adressUpdate') }}" class="row g-3 needs-validation py-5"
-                        method="POST">
+                    <form action="{{ route('user.adressUpdate') }}" class="row g-3 needs-validation py-5" method="POST">
                         @method('PUT')
                         @csrf
                         <div class='modal-header'>
@@ -17,49 +16,46 @@
                             <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                         </div>
                         <div class='modal-body'>
-                                <div class="form-floating mb-3 col-12">
-                                    <select class="form-select" id="way_type" aria-label="Tipo de vía" name="way_type"
-                                        required>
-                                        <option value="street" {{ old('way_type') == 'street' ? 'selected' : '' }}>
-                                            Calle
-                                        </option>
-                                        <option value="avenue" {{ old('way_type') == 'avenue' ? 'selected' : '' }}>
-                                            Avenida
-                                        </option>
-                                        <option value="square" {{ old('way_type') == 'square' ? 'selected' : '' }}>
-                                            Plaza
-                                        </option>
-                                    </select>
-                                    <label for="way_type" class="mx-2">Tipo de vía<span
-                                            class="text-danger">*</span></label>
-                                </div>
+                            <div class="form-floating mb-3 col-12">
+                                <select class="form-select" id="way_type" aria-label="Tipo de vía" name="way_type"
+                                    required>
+                                    <option value="street" {{ old('way_type') == 'street' ? 'selected' : '' }}>
+                                        Calle
+                                    </option>
+                                    <option value="avenue" {{ old('way_type') == 'avenue' ? 'selected' : '' }}>
+                                        Avenida
+                                    </option>
+                                    <option value="square" {{ old('way_type') == 'square' ? 'selected' : '' }}>
+                                        Plaza
+                                    </option>
+                                </select>
+                                <label for="way_type" class="mx-2">Tipo de vía<span class="text-danger">*</span></label>
+                            </div>
 
-                                <div class="form-floating mb-3 col-12">
-                                    <input class="form-control" id="way_name" type="text" name="way_name"
-                                        placeholder="Tipo de vía" data-sb-validations="required"
-                                        value="{{$address->way_name}}" required />
-                                    <label for="way_name" class="mx-2">Nombre de vía<span
-                                            class="text-danger">*</span></label>
-                                </div>
+                            <div class="form-floating mb-3 col-12">
+                                <input class="form-control" id="way_name" type="text" name="way_name"
+                                    placeholder="Tipo de vía" data-sb-validations="required"
+                                    value="{{ $address->way_name }}" required />
+                                <label for="way_name" class="mx-2">Nombre de vía<span class="text-danger">*</span></label>
+                            </div>
 
-                                <div class="form-floating mb-3 col-12">
-                                    <input class="form-control" id="province" type="text" name="province" data-sb-validations="required" value="{{$address->province}}"
-                                        required />
-                                    <label for="province" class="mx-2">Provincia<span class="text-danger">*</span></label>
-                                </div>
-                                <div class="form-floating mb-3 col-12">
-                                    <input class="form-control" id="town" type="text" name="town"
-                                        placeholder="Municipio" data-sb-validations="required" value="{{$address->town}}"
-                                        required />
-                                    <label for="town" class="mx-2">Municipio<span class="text-danger">*</span></label>
-                                </div>
-                                <div class="form-floating mb-3 col-12">
-                                    <input class="form-control" id="zipcode" type="text" name="zipcode"
-                                        placeholder="Código Postal" data-sb-validations="required"
-                                        value="{{$address->zipcode}}" required />
-                                    <label for="zipcode" class="mx-2">Código Postal<span
-                                            class="text-danger">*</span></label>
-                                </div>
+                            <div class="form-floating mb-3 col-12">
+                                <input class="form-control" id="province" type="text" name="province"
+                                    data-sb-validations="required" value="{{ $address->province }}" required />
+                                <label for="province" class="mx-2">Provincia<span class="text-danger">*</span></label>
+                            </div>
+                            <div class="form-floating mb-3 col-12">
+                                <input class="form-control" id="town" type="text" name="town"
+                                    placeholder="Municipio" data-sb-validations="required" value="{{ $address->town }}"
+                                    required />
+                                <label for="town" class="mx-2">Municipio<span class="text-danger">*</span></label>
+                            </div>
+                            <div class="form-floating mb-3 col-12">
+                                <input class="form-control" id="zipcode" type="text" name="zipcode"
+                                    placeholder="Código Postal" data-sb-validations="required"
+                                    value="{{ $address->zipcode }}" required />
+                                <label for="zipcode" class="mx-2">Código Postal<span class="text-danger">*</span></label>
+                            </div>
                         </div>
                         <div class='modal-footer'>
                             <button type='submit' class='btn btn-primary' data-bs-dismiss='modal'>Aceptar</button>
@@ -84,48 +80,41 @@
                 </ul>
             </div>
         @endif
+
         <!--PERSONAL DATA-->
         <form action="{{ route('user-profile-information.update') }}" class="row g-3 needs-validation py-5" method="POST">
             @method('PUT')
             @csrf
             <h4>Datos Personales</h4>
-            <div class="col-sm-12 col-md-6">
-                <label for="validationCustom01" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="validationCustom01" name="name"
-                    value="{{ $user->name }}" required>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
+
+            <div class="form-floating col-sm-12 col-md-6">
+                <input class="form-control" id="name" type="text" name="name" placeholder="Nombre"
+                    data-sb-validations="required" value="{{ $user->name }}" required />
+                <label for="name" class="mx-2">Nombre</label>
             </div>
-            <div class="col-sm-12 col-md-6">
-                <label for="validationCustom02" class="form-label">Apellidos</label>
-                <input type="text" class="form-control" id="validationCustom02" name="surname"
-                    value="{{ $user->surname }}" required>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
+
+            <div class="form-floating col-sm-12 col-md-6">
+                <input class="form-control" id="surname" type="text" name="surname" placeholder="Apellidos"
+                    data-sb-validations="required" value="{{ $user->surname }}" required />
+                <label for="surname" class="mx-2">Apellidos</label>
             </div>
-            <div class="col-sm-12 col-md-6">
-                <label for="validationCustomUsername" class="form-label">Email</label>
-                <div class="input-group">
-                    <input type="email" class="form-control" id="validationCustom02" name="email"
-                        value="{{ $user->email }}" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
+
+            <div class="form-floating col-sm-12 col-md-6">
+                <input class="form-control" id="email" type="email" name="email" placeholder="Email"
+                    data-sb-validations="required" value="{{ $user->email }}" />
+                <label for="email" class="mx-2">Email</label>
             </div>
-            <div class="col-sm-12 col-md-6">
-                <label for="validationCustom03" class="form-label">Teléfono</label>
-                <input type="tel" class="form-control" id="validationCustom03" name="phone"
-                    value="{{ $user->phone }}" required>
-                <div class="invalid-feedback">
-                    Please provide a valid number.
-                </div>
+
+            <div class="form-floating col-sm-12 col-md-6">
+                <input class="form-control" id="phone" type="tel" name="phone" placeholder="Telefono"
+                    data-sb-validations="required" value="{{ $user->phone }}" />
+                <label for="phone" class="mx-2">Teléfono</label>
             </div>
+
             <div class="col-12">
-                <button class="btn btn-primary" type="submit">Guardar</button>
+                <button class="btn btn-primary btn-lg" type="submit">Guardar</button>
             </div>
+
         </form>
 
         <hr>
@@ -135,12 +124,19 @@
             @method('PUT')
             @csrf
             <h4>Contraseña</h4>
-            <div class="col-sm-12 col-md-4">
+
+            <div class="form-floating col-sm-12 col-md-4">
+                <input class="form-control" id="password" type="password" name="current_password"
+                            placeholder="Contraseña" data-sb-validations="required" />
+                        <label for="password" class="mx-2">Contraseña</label>
+
+{{-- 
+
                 <label for="validationCustom01" class="form-label">Antigua contraseña</label>
                 <input type="password" class="form-control" id="validationCustom01" name="current_password" required>
                 <div class="valid-feedback">
                     Looks good!
-                </div>
+                </div> --}}
             </div>
             <div class="col-md-4">
                 <label for="validationCustom02" class="form-label">Nueva contraseña</label>

@@ -95,7 +95,7 @@
                                     @endif
                                     <li>
                                         <a class="dropdown-item px-2 text-hover-white" href="{{ route('user.data') }}"><i
-                                                class="bi bi-gear-fill"></i> Panel de usuario</a>
+                                                class="bi bi-person-circle"></i> Panel de usuario</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item px-2 text-hover-white" href="{{ route('logout') }}"

@@ -45,7 +45,7 @@ class ProductsController extends Controller
         'name' => 'required|unique:products,name|string|min:4|max:255',
         'price' => 'required|numeric|min:0',
         'stock' => 'required|integer|min:0',
-        'description' => 'required|string|min:10|max:255',
+        'description' => 'required|string|min:10|max:65000',
         'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         'iva' => 'required|integer|min:0',
         'category' => 'required'
