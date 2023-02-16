@@ -53,4 +53,8 @@ Route::prefix('/user')->group(function () {
     Route::get('/myOrders', [UsersController::class, 'showData'])->name('user.orders')->middleware('auth');
 
     Route::get('/support', [UsersController::class, 'supportView'])->name('user.support')->middleware('auth');
+
+    Route::get('/cart', function () {
+        return view('shoppingCart');
+    })->name('cart');
 });
