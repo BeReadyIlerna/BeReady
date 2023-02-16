@@ -83,7 +83,7 @@
                     <div class="form-floating mb-3 col-12 col-md-4">
                         <input class="form-control" id="province" type="text" name="province" placeholder="Ciudad"
                             data-sb-validations="required" value="{{ old('province') }}" required />
-                        <label for="province" class="mx-2">Ciudad<span class="text-danger">*</span></label>
+                        <label for="province" class="mx-2">Provincia<span class="text-danger">*</span></label>
                     </div>
                     <div class="form-floating mb-3 col-12 col-md-4">
                         <input class="form-control" id="town" type="text" name="town" placeholder="Municipio"
