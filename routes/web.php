@@ -25,6 +25,9 @@ Route::get('/login', function () {
 Route::get('/signup', function () {
     return view('auth.signup');
 })->name('signup');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 
 Route::post("/signup", [UsersController::class, "create"])->name("user.create");
@@ -59,7 +62,5 @@ Route::prefix('/user')->namespace('App\\Http\\Controllers\\UsersController')->gr
         return view('user.support');
     })->name('user.support');
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    
 });
