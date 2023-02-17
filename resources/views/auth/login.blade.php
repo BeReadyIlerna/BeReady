@@ -1,18 +1,22 @@
-@extends('templates.template')
-
-
+@extends('templates.general')
 
 @section('body')
     <div class="div-body col-12">
-        <!--Logo-->
-        <div class="container d-grid justify-content-center">
-            <a href={{ Route('index') }}><img class="login-logo" src="./img/beready-logo.png" alt="logo beready"></a>
-        </div>
 
         <div class="p-4 border rounded my-5 py-5 justify-content-center container col-10 col-md-8 col-lg-6 col-xl-3">
             <div class="text-center py-3">
                 <h2>Iniciar Sesión</h2>
             </div>
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             <form id="loginForm" action="" method="POST">
                 @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}

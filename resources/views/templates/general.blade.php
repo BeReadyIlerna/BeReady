@@ -66,22 +66,48 @@
                                 </li>
                                 <li id="cart-product-1" hidden="true">
                                     <a class="dropdown-item mx-0 px-2 d-flex text-hover-white " hidden href="#"><img
-                                            class="d-flex img-cart" src="./img/productos/satisfyer-min.webp">29.99€ -
-                                        Satisfyer Pro 2</a>
+                                            class="d-flex img-cart" src="">Nombre del producto</a>
                                 </li>
-                                <li id="btn-gocart" hidden="true" class="text-center">
-                                    <a class="link-view-cart" href="./html/cartPage.html">Ver mi cesta</a>
+                                <li id="btn-gocart" hidden="false" class="text-center">
+                                    <a class="link-view-cart" href="">Ver mi cesta</a>
                                 </li>
                             </ul>
                         </li>
 
-                        <div>
-                            <li class="nav-item d-flex position-relative mx-md-5">
-                                <a class="nav-link text-black text-hover-white" href={{ Route('login') }}
-                                    aria-expanded="false"><i class="bi bi-person-fill"></i> Mi cuenta</a>
+                        @guest
+                            <div>
+                                <li class="nav-item d-flex position-relative mx-md-5">
+                                    <a class="nav-link text-black text-hover-white" href={{ Route('login') }}
+                                        aria-expanded="false"><i class="bi bi-person-fill"></i> Mi cuenta</a>
+                                </li>
+                            </div>
+                        @endguest
+                        @auth
+                            <li class="nav-item dropdown d-flex mx-md-5">
+                                <a class="nav-link dropdown-toggle text-primary text-hover-white" href="#"
+                                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i> {{Auth::user()->name}}</a>
+                                <ul class="dropdown-menu products-open">
+                                    @if (Auth::user()->role == 'admin')
+                                    <li>
+                                        <a class="dropdown-item px-2 text-hover-white" href="#"><i
+                                                class="bi bi-gear-fill"></i> Panel de administración</a>
+                                    </li>
+                                    @endif
+                                    <li>
+                                        <a class="dropdown-item px-2 text-hover-white" href="{{ route('user.data') }}"><i
+                                                class="bi bi-person-circle"></i> Panel de usuario</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item px-2 text-hover-white" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('formLogout').submit();"><i
+                                                class="bi bi-x-square-fill"></i> {{ __('Logout') }}</a>
+                                    </li>
+                                </ul>
                             </li>
-                        </div>
-
+                            <form action="{{ route('logout') }}" method="POST" id="formLogout">
+                                @csrf
+                            </form>
+                        @endauth
                     </ul>
                 </div>
             </div>

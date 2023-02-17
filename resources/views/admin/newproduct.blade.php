@@ -15,7 +15,7 @@
                     </div>
                 @endif
 
-                @if (count($errors) > 0)
+                @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -27,25 +27,25 @@
 
                 <div class="form-floating mb-3 mt-3">
                     <input class="form-control" id="name" type="text" name="name" placeholder="Nombre"
-                        data-sb-validations="required" value="{{ old('name') }}" required/>
+                        data-sb-validations="required" value="{{ old('name') }}" required />
                     <label for="nombre">Nombre<span class="text-danger">*</span></label>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="price" type="number" name="price" placeholder="Precio"
-                        data-sb-validations="required" value="{{ old('price') }}" required/>
+                    <input class="form-control" id="price" type="number" step="0.01" name="price"
+                        placeholder="Precio" data-sb-validations="required" value="{{ old('price') }}" required />
                     <label for="precio">Precio<span class="text-danger">*</span></label>
                 </div>
 
                 <div class="form-floating mb-3">
                     <input class="form-control" id="iva" type="number" name="iva" placeholder="IVA"
-                        data-sb-validations="required" value="{{ old('iva') }}" required/>
+                        data-sb-validations="required" value="{{ old('iva') }}" required />
                     <label for="iva">IVA<span class="text-danger">*</span></label>
                 </div>
 
                 <div class="form-floating mb-3">
                     <input class="form-control" id="stock" type="number" name="stock" placeholder="Stock"
-                        data-sb-validations="required" value="{{ old('stock') }}" required/>
+                        data-sb-validations="required" value="{{ old('stock') }}" required />
                     <label for="stock">Stock<span class="text-danger">*</span></label>
                 </div>
 
@@ -69,7 +69,7 @@
                 <div class="form-floating mb-3">
                     <input class="form-control" id="image" type="file" name="image" placeholder="Imagen"
                         accept="image/png, image/jpeg, image/webp" data-sb-validations="required"
-                        value="{{ old('image') }}" required/>
+                        value="{{ old('image') }}" required />
                     <label for="image">Imagen<span class="text-danger">*</span></label>
                 </div>
 
