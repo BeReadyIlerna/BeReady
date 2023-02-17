@@ -16,16 +16,16 @@
                     </div>
                     <hr class="my-4">
 
-                    @foreach ( as )
+                    @foreach ($products as $product)
                         <!-- Product -->
                         <div class="row mb-4 d-flex justify-content-between align-items-center">
                             <div class="col-md-2 col-lg-2 col-xl-2">
-                            <img src="./../img/productos/SatisfyerPro2.webp" class="img-fluid rounded-3"
-                                alt="Satisfyer Pro 2">
+                              <a href="{{ route('product').'/'.$product->id }}"><img src="{{ URL::asset("img/" . $product->image)}}" class="img-fluid rounded-3"
+                                alt="imagen del producto"></a>
                             </div>
                             <div class="col-md-3 col-lg-3 col-xl-3 mb-3 mb-md-0">
-                            <h6 class="text-muted">Juguetes</h6>
-                            <h6 class="text-black">Satisfyer Pro 2</h6>
+                            {{-- <h6 class="text-muted">{{$category->name}}</h6> --}}
+                            <h6 class="text-black">{{$product->name}}</h6>
                             </div>
                             <div class="col-md-3 col-lg-3 col-xl-2 d-flex mb-3 mb-md-0">
                             <button class="btn px-2"
@@ -33,7 +33,7 @@
                                 <i class="bi bi-dash-lg"></i>
                             </button>
     
-                            <input id="form1" min="1" name="quantity" value="1" type="number"
+                            <input id="form1" min="1" name="quantity" value="{{$product->pivot->quantity}}" type="number"
                                 class="form-control form-control-sm" />
     
                             <button class="btn px-2"
@@ -42,7 +42,7 @@
                             </button>
                             </div>
                             <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                            <h6 class="mb-0">29.99€</h6>
+                            <h6 class="mb-0">{{$product->total}} €</h6>
                             </div>
                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                             <a href="#!" class="text-muted"><i class="bi bi-trash-fill"></i></a>
