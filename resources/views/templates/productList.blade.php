@@ -4,14 +4,15 @@
                 <div id="product-{{ $product->id }}" class="single-product">
                     <div class="part-1 text-center bg-image hover-zoom">
                         {{-- <span class="discount">40% descuento</span> --}}
-                        <a href="product/{{ $product->id }}"><img class="h-100 w-auto m-0"
+                        <a href="product/{{ $product->id }}"><img class="h-100 w-auto m-0 insert-img"
                                 src={{ URL::asset('img/' . $product->image) }} alt="imagen del producto"></a>
                         <ul>
                             <li><i id="cart-{{ $product->id }}" class="bi bi-cart"
                                     onclick="checkIcon('cart-{{ $product->id }}')"></i></li>
                             <li><i id="heart-{{ $product->id }}" class="bi bi-suit-heart"
                                     onclick="checkIcon('heart-{{ $product->id }}')"></i></li>
-                            <li><i class="bi bi-fullscreen" onclick="popupImage({{ URL::asset('img/' . $product->image) }})"></i></li>
+                            <li><i class="bi bi-fullscreen" onclick="popupImage('{{ URL::asset('img/' . $product->image) }}')"></i></li>
+                       
                         </ul>
                     </div>
                     <div class="part-2">
