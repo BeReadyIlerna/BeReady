@@ -27,10 +27,6 @@ Route::get('/signup', function () {
     return view('auth.signup');
 })->name('signup')->middleware('guest');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
 Route::post("/signup", [UsersController::class, "create"])->name("user.create")->middleware('guest');
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
@@ -44,9 +40,14 @@ Route::prefix('/admin')->group(function () {
         return view('admin.newcategory');
     })->name('category.new')->middleware('admin');
 
+
     Route::post('/addProduct', [ProductsController::class, 'create'])->name('product.create')->middleware('admin');
 
     Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
+
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('dashboard')->middleware('admin');
 });
 
 Route::prefix('/user')->group(function () {

@@ -85,13 +85,14 @@
                         @auth
                             <li class="nav-item dropdown d-flex mx-md-5">
                                 <a class="nav-link dropdown-toggle text-primary text-hover-white" href="#"
-                                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i> {{Auth::user()->name}}</a>
+                                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i>
+                                    {{ Auth::user()->name }}</a>
                                 <ul class="dropdown-menu products-open">
                                     @if (Auth::user()->role == 'admin')
-                                    <li>
-                                        <a class="dropdown-item px-2 text-hover-white" href="#"><i
-                                                class="bi bi-gear-fill"></i> Panel de administración</a>
-                                    </li>
+                                        <li>
+                                            <a class="dropdown-item px-2 text-hover-white" href="{{ route('dashboard') }}"><i
+                                                    class="bi bi-gear-fill"></i> Panel de administración</a>
+                                        </li>
                                     @endif
                                     <li>
                                         <a class="dropdown-item px-2 text-hover-white" href="{{ route('user.data') }}"><i
