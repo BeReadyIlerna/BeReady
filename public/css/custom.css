@@ -1,7 +1,9 @@
 /** ROOT */
+
 :root {
     --primarycolor: #586AFF;
 }
+
 
 /** GENERAL */
 
@@ -59,52 +61,9 @@
     background-color: var(--primarycolor);
 }
 
-/** MOBILE PARAMS  */
-
-@media screen and (max-width: 767px) {
-    .text-hover-white:hover {
-        background-color: rgba(255, 255, 255, 0);
-        color: black !important;
-    }
-
-    .badge-cart {
-        margin-left: 18px;
-    }
-
-    .nav-logo {
-        height: 80px;
-        width: auto;
-        margin-right: 2%;
-    }
-
-    .navbar-toggler {
-        border: 2px black solid;
-    }
-
-    .navbar-nav .cart-open {
-        position: relative;
-        margin-left: -100px;
-        margin-top: 38px;
-    }
-
-    .navbar-nav .products-open {
-        margin-left: -108px;
-        margin-top: 38px;
-    }
-
-    .btn-micesta:hover {
-        color: white;
-        background-color: rgb(26, 26, 26);
-        box-shadow: none;
-        transition: none;
-    }
-
-    .link-view-cart:hover {
-        text-decoration: none;
-    }
-}
 
 /** PRODUCTS LANDING */
+
 .section-products {
     padding: 80px 0 54px;
 }
@@ -230,7 +189,9 @@
     transform: translateY(-50%);
 }
 
+
 /** LOGIN */
+
 .a-divider.a-divider-break {
     text-align: center;
     position: relative;
@@ -279,20 +240,25 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+
 /** FORMS */
 
 .desc-form {
     height: 10rem !important;
 }
 
+
 /** USER PANEL */
+
 .button-as-text {
     padding: 0 !important;
     border: none !important;
     background: none !important;
 }
 
-/** Popup */
+
+/** POPUP */
+
 .img-popup {
     position: fixed;
     z-index: 10;
@@ -367,7 +333,9 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 
+
 /** CART NAVBAR */
+
 .img-cart {
     height: 20px;
     width: 20px;
@@ -381,4 +349,50 @@ input[type=number]::-webkit-outer-spin-button {
     background: none;
     padding: 0px;
     border: none;
+}
+
+
+/** MOBILE PARAMS  */
+
+@media screen and (max-width: 767px) {
+    .text-hover-white:hover {
+        background-color: rgba(255, 255, 255, 0);
+        color: black !important;
+    }
+
+    .badge-cart {
+        margin-left: 18px;
+    }
+
+    .nav-logo {
+        height: 80px;
+        width: auto;
+        margin-right: 2%;
+    }
+
+    .navbar-toggler {
+        border: 2px black solid;
+    }
+
+    .navbar-nav .cart-open {
+        position: relative;
+        margin-left: -100px;
+        margin-top: 38px;
+    }
+
+    .navbar-nav .products-open {
+        margin-left: -108px;
+        margin-top: 38px;
+    }
+
+    .btn-micesta:hover {
+        color: white;
+        background-color: rgb(26, 26, 26);
+        box-shadow: none;
+        transition: none;
+    }
+
+    .link-view-cart:hover {
+        text-decoration: none;
+    }
 }
