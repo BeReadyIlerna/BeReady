@@ -24,7 +24,7 @@ class ShoppingcartsController extends Controller
     {
         $cart = Shoppingcart::where('user_id', Auth::id())->first();
         if(!$cart->products->contains($request['product'])){ // check if the product is already in the cart
-            $cart->products()->attach($request['product'], ['quantity' => $request->quantity]);
+            $cart->products()->attach($request['product'], ['quantity' => $request->quantity ?? 1]);
         }
         return back();
     }

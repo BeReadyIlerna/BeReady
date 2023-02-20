@@ -31,7 +31,7 @@ Route::get('/signup', function () {
 Route::post("/signup", [UsersController::class, "create"])->name("user.create")->middleware('guest');
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
-Route::post('/product/addProduct', [ShoppingcartsController::class, 'addProduct'])->name('cart.addProduct');
+Route::post('/product/addProduct', [ShoppingcartsController::class, 'addProduct'])->name('cart.addProduct')->middleware('auth');
 
 Route::get('/{name}', [CategoriesController::class, 'categoryProducts'])->name('category');
 
@@ -50,7 +50,6 @@ Route::prefix('/admin')->group(function () {
 Route::prefix('/user')->group(function () {
     Route::get('/myData', [UsersController::class, 'showData'])->name('user.data')->middleware('auth');
     Route::put('/adressUpdate', [AddressesController::class, 'update'])->name('user.adressUpdate')->middleware('auth');
-
 
     Route::get('/myOrders', [UsersController::class, 'showData'])->name('user.orders')->middleware('auth');
 
