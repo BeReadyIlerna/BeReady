@@ -13,13 +13,38 @@ class ShoppingcartsController extends Controller
     {
         $cart = Shoppingcart::where('user_id', Auth::id())->first();
         $products = $cart->products;
-        return view('user.shoppingCart', @compact('products'));
+        $totalPrice = 0;
+        foreach ($products as $product) {
+            $totalPrice += $product->total * $product->pivot->quantity;
+        }
+        return view('user.shoppingCart', @compact('products', 'totalPrice'));
     }
 
     public function addProduct(Request $request)
     {
         $cart = Shoppingcart::where('user_id', Auth::id())->first();
         $cart->products()->attach($request['product'], ['quantity' => $request->quantity]);
+        return back();
+    }
+
+    public function deleteProduct($id)
+    {
+        $cart = Shoppingcart::where('user_id', Auth::id())->first();
+        $cart->products()->detach($id);
+        return back();
+    }
+
+    public function subtractProduct($id)
+    {
+        $cart = Shoppingcart::where('user_id', Auth::id())->first();
+        $cart->products()->where('product_id', $id)->decrement('quantity');
+        return back();
+    }
+
+    public function sumProduct($id)
+    {
+        $cart = Shoppingcart::where('user_id', Auth::id())->first();
+        $cart->products()->where('product_id', $id)->increment('quantity');
         return back();
     }
 }

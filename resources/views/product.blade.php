@@ -34,7 +34,7 @@
                         <span class="fw-bold col-4 align-self-center">Cantidad: </span>
                         <span class="fw-normal col-8">
                             <div class="d-flex mb-md-0">
-                                <button class="btn px-2"
+                                <button class="btn px-2" type="button"
                                     onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                     <i class="bi bi-dash-lg"></i>
                                 </button>
@@ -42,7 +42,7 @@
                                 <input id="form1" min="1" max="99" name="quantity" value="1" type="number"
                                     class="form-control form-control-sm product-quantity-width text-center" />
 
-                                <button class="btn px-2"
+                                <button class="btn px-2" type="button"
                                     onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                     <i class="bi bi-plus-lg"></i>
                                 </button>
