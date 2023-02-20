@@ -22,8 +22,6 @@ class ProductsController extends Controller
         } else {
             return view('index', @compact('products'));
         }
-        // $user = User::findOrFail(Auth::id());
-        // return view('templates.general', @compact('user'));
 
     }
 
