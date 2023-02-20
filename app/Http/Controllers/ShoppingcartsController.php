@@ -23,7 +23,9 @@ class ShoppingcartsController extends Controller
     public function addProduct(Request $request)
     {
         $cart = Shoppingcart::where('user_id', Auth::id())->first();
-        $cart->products()->attach($request['product'], ['quantity' => $request->quantity]);
+        if(!$cart->products->contains($request['product'])){ // check if the product is already in the cart
+            $cart->products()->attach($request['product'], ['quantity' => $request->quantity]);
+        }
         return back();
     }
 

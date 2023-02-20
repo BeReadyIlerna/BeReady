@@ -13,7 +13,7 @@
                                         <div class="d-flex justify-content-between align-items-center mb-5">
                                             <h1 class="fw-bold mb-0 text-black"><i class="bi bi-cart-fill"></i> Mi cesta
                                             </h1>
-                                            <h6 class="mb-0 text-muted">3 Artículos</h6>
+                                            <h6 class="mb-0 text-muted">{{count($products)}} Artículos</h6>
                                         </div>
                                         <hr class="my-4">
 
