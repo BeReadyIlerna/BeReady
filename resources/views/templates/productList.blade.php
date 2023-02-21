@@ -15,8 +15,6 @@
                                         <i id="cart-{{ $product->id }}" class="bi bi-cart "></i>
                                     </button>
                                 </li>
-                                <li class="hover-shadow"><i id="heart-{{ $product->id }}" class="bi bi-suit-heart"
-                                        onclick="checkIcon('heart-{{ $product->id }}')"></i></li>
                                 <li class="hover-shadow"><i class="bi bi-fullscreen"
                                         onclick="popupImage('{{ URL::asset('img/' . $product->image) }}')"></i></li>
                             </form>

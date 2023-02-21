@@ -54,7 +54,6 @@
                                         @if (count(Auth::user()->cart->products) > 0)
                                             <span id="badge-cart"
                                                 class="position-absolute top-0 start-0 translate-middle badge rounded-pill badge-cart">
-                                                {{-- TODO Contar los productos teniendo en cuenta la cantidad --}}
                                                 {{ count(Auth::user()->cart->products) }}
                                             </span>
                                         @endif

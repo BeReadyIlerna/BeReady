@@ -13,7 +13,7 @@
                                         <div class="d-flex justify-content-between align-items-center mb-5">
                                             <h1 class="fw-bold mb-0 text-black"><i class="bi bi-cart-fill"></i> Mi cesta
                                             </h1>
-                                            <h6 class="mb-0 text-muted">{{count($products)}} Artículos</h6>
+                                            <h6 class="mb-0 text-muted">{{ count($products) }} Artículos</h6>
                                         </div>
                                         <hr class="my-4">
 
@@ -31,7 +31,8 @@
                                                 </div>
                                                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex mb-3 mb-md-0">
 
-                                                    <a href="{{ route('user.cartProductSub') . '/' . $product->id }}"><button class="btn px-2">
+                                                    <a href="{{ route('user.cartProductSub') . '/' . $product->id }}"><button
+                                                            class="btn px-2">
                                                             <i class="bi bi-dash-lg"></i>
                                                         </button></a>
 
@@ -39,7 +40,8 @@
                                                         value="{{ $product->pivot->quantity }}" type="number"
                                                         class="form-control form-control-sm" />
 
-                                                    <a href="{{ route('user.cartProductSum') . '/' . $product->id }}"><button class="btn px-2">
+                                                    <a href="{{ route('user.cartProductSum') . '/' . $product->id }}"><button
+                                                            class="btn px-2">
                                                             <i class="bi bi-plus-lg"></i>
                                                         </button></a>
                                                 </div>
@@ -120,9 +122,11 @@
                                             }
                                         </script>
 
-                                        <button type="button" class="btn btn-block btn-lg btn-micesta">
-                                            <h5>Tramitar pedido</h5>
-                                        </button>
+                                        <form action="{{ route('user.makeOrder') }}" method="post">
+                                            <button type="submit" class="btn btn-block btn-lg btn-micesta">
+                                                <h5>Tramitar pedido</h5>
+                                            </button>
+                                        </form>
 
                                     </div>
                                 </div>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AddressesController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ShoppingcartsController;
 use App\Http\Controllers\UsersController;
@@ -30,6 +31,7 @@ Route::get('/signup', function () {
 
 Route::post("/signup", [UsersController::class, "create"])->name("user.create")->middleware('guest');
 
+Route::post('/', [OrdersController::class, 'saveOrder'])->name('user.makeOrder')->middleware('auth');
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
 Route::post('/product/addProduct', [ShoppingcartsController::class, 'addProduct'])->name('cart.addProduct')->middleware('auth');
 
@@ -47,14 +49,15 @@ Route::prefix('/admin')->group(function () {
     Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
 });
 
+
 Route::prefix('/user')->group(function () {
     Route::get('/myData', [UsersController::class, 'showData'])->name('user.data')->middleware('auth');
     Route::put('/adressUpdate', [AddressesController::class, 'update'])->name('user.adressUpdate')->middleware('auth');
-
+    
     Route::get('/myOrders', [UsersController::class, 'showData'])->name('user.orders')->middleware('auth');
-
+    
     Route::get('/support', [UsersController::class, 'supportView'])->name('user.support')->middleware('auth');
-
+    
     Route::get('/cart', [ShoppingcartsController::class, 'showCart'])->name('user.cart')->middleware('auth');
     Route::get('/cart/delete/{id?}', [ShoppingcartsController::class, 'deleteProduct'])->name('user.cartDelete')->middleware('auth');
     Route::get('/cart/sub/{id?}', [ShoppingcartsController::class, 'subtractProduct'])->name('user.cartProductSub')->middleware('auth');
