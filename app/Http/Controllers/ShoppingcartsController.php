@@ -17,6 +17,8 @@ class ShoppingcartsController extends Controller
         foreach ($products as $product) {
             $totalPrice += $product->total * $product->pivot->quantity;
         }
+        $cart->total = $totalPrice;
+        $cart->update();
         return view('user.shoppingCart', @compact('products', 'totalPrice'));
     }
 
@@ -25,6 +27,8 @@ class ShoppingcartsController extends Controller
         $cart = Shoppingcart::where('user_id', Auth::id())->first();
         if(!$cart->products->contains($request['product'])){ // check if the product is already in the cart
             $cart->products()->attach($request['product'], ['quantity' => $request->quantity ?? 1]);
+        } else{
+            $cart->products()->updateExistingPivot($request['product'], ['quantity' => $request->quantity ?? 1]);
         }
         return back();
     }
