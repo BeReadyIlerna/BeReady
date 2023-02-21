@@ -123,6 +123,7 @@
                                         </script>
 
                                         <form action="{{ route('user.makeOrder') }}" method="post">
+                                            @csrf
                                             <button type="submit" class="btn btn-block btn-lg btn-micesta">
                                                 <h5>Tramitar pedido</h5>
                                             </button>
