@@ -50,27 +50,47 @@
                             <a class="nav-link dropdown-toggle text-black text-hover-white" href="#"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-cart-fill">
-                                    <span id="badge-cart"
-                                        class="position-absolute top-0 start-0 translate-middle badge rounded-pill badge-cart"
-                                        hidden="true">
-                                        1
-                                    </span>
+                                    @auth
+                                        @if (count(Auth::user()->cart->products) > 0)
+                                            <span id="badge-cart"
+                                                class="position-absolute top-0 start-0 translate-middle badge rounded-pill badge-cart">
+                                                {{-- TODO Contar los productos teniendo en cuenta la cantidad --}}
+                                                {{ count(Auth::user()->cart->products) }}
+                                            </span>
+                                        @endif
+                                    @endauth
                                 </i>
                                 Mi cesta
                             </a>
                             <ul class="dropdown-menu cart-open">
-                                <li id="empty-cart">
-                                    <a class="dropdown-item mx-0 px-2 d-flex text-hover-white " href="#">
-                                        No has añadido nada aún
+                                @guest
+                                    <a class="dropdown-item mx-0 px-2 d-flex text-hover-white text-cart"
+                                        href="{{ route('login') }}">
+                                        ¡Inicia sesión y empieza a comprar!
                                     </a>
-                                </li>
-                                <li id="cart-product-1" hidden="true">
-                                    <a class="dropdown-item mx-0 px-2 d-flex text-hover-white " hidden href="#"><img
-                                            class="d-flex img-cart" src="">Nombre del producto</a>
-                                </li>
-                                <li id="btn-gocart" hidden="false" class="text-center">
-                                    <a class="link-view-cart" href="">Ver mi cesta</a>
-                                </li>
+                                @endguest
+                                @auth
+                                    @if (count(Auth::user()->cart->products) < 1)
+                                        <li id="empty-cart">
+                                            <a class="dropdown-item mx-0 px-2 d-flex text-hover-white text-cart" href="">
+                                                No has añadido nada aún
+                                            </a>
+                                        </li>
+                                    @else
+                                        @foreach (Auth::user()->cart->products as $product)
+                                            <li id="cart-product-1">
+                                                <a class="dropdown-item mx-0 px-2 d-flex text-hover-white text-cart" hidden
+                                                    href="{{ route('product') . '/' . $product->id }}"><img
+                                                        class="d-flex img-cart"
+                                                        src="{{ URL::asset('img/' . $product->image) }}">{{ ' · ' . $product->pivot->quantity . ' - ' . $product->name }}</a>
+                                            </li>
+                                        @endforeach
+                                        <hr>
+                                        <li id="btn-gocart" class="text-center pb-3">
+                                            <a class="link-view-cart" href="{{ route('user.cart') }}">Ver mi cesta</a>
+                                        </li>
+                                    @endif
+                                @endauth
                             </ul>
                         </li>
 
@@ -85,18 +105,20 @@
                         @auth
                             <li class="nav-item dropdown d-flex mx-md-5">
                                 <a class="nav-link dropdown-toggle text-primary text-hover-white" href="#"
-                                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i> {{Auth::user()->name}}</a>
+                                    data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i>
+                                    {{ Auth::user()->name }}</a>
                                 <ul class="dropdown-menu products-open">
                                     @if (Auth::user()->role == 'admin')
-                                    <li>
-                                        <a class="dropdown-item px-2 text-hover-white" href="#"><i
-                                                class="bi bi-gear-fill"></i> Panel de administración</a>
-                                    </li>
+                                        <li>
+                                            <a class="dropdown-item px-2 text-hover-white" href="#"><i
+                                                    class="bi bi-gear-fill"></i> Panel de administración</a>
+                                        </li>
+                                    @elseif (Auth::user()->role == 'user')
+                                        <li>
+                                            <a class="dropdown-item px-2 text-hover-white" href="{{ route('user.data') }}"><i
+                                                    class="bi bi-person-circle"></i> Panel de usuario</a>
+                                        </li>
                                     @endif
-                                    <li>
-                                        <a class="dropdown-item px-2 text-hover-white" href="{{ route('user.data') }}"><i
-                                                class="bi bi-person-circle"></i> Panel de usuario</a>
-                                    </li>
                                     <li>
                                         <a class="dropdown-item px-2 text-hover-white" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); document.getElementById('formLogout').submit();"><i
