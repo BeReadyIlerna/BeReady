@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,8 @@ Route::prefix('/admin')->group(function () {
     Route::post('/addProduct', [ProductsController::class, 'create'])->name('product.create')->middleware('admin');
 
     Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
+
+    Route::post('/dashboard',[ProductsController::class ,'showProduct'])->name('product.view')->middleware('admin');
 
     Route::get('/dashboard', function () {
         return view('admin.dashboard');

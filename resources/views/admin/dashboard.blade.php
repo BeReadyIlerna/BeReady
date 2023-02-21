@@ -38,8 +38,30 @@
                     
                 </div>
             </div>
-            <div class="col py-3">
-                @yield('userContent')
+            <div class="col py-3 ">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Descripcion</th>
+                            <th>Imagen</th>
+                            <th>IVA</th>
+                            <th>Total</th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @foreach ($products as $product )
+                            <td>{{$product->id}}</td>
+                            @endforeach
+                            
+                        </tr>
+                    </tbody>
+                </table>
                 
                 
             </div>
