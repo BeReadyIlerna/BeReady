@@ -55,8 +55,10 @@ Route::prefix('/user')->group(function () {
 
     Route::get('/support', [UsersController::class, 'supportView'])->name('user.support')->middleware('auth');
 
-    Route::get('/cart', [ShoppingcartsController::class, 'showCart'])->name('user.cart')->middleware('auth');
-    Route::get('/cart/delete/{id?}', [ShoppingcartsController::class, 'deleteProduct'])->name('user.cartDelete')->middleware('auth');
-    Route::get('/cart/sub/{id?}', [ShoppingcartsController::class, 'subtractProduct'])->name('user.cartProductSub')->middleware('auth');
-    Route::get('/cart/sum/{id?}', [ShoppingcartsController::class, 'sumProduct'])->name('user.cartProductSum')->middleware('auth');
+    Route::prefix('/cart')->group(function () {
+    Route::get('/', [ShoppingcartsController::class, 'showCart'])->name('user.cart')->middleware('auth');
+    Route::get('/delete/{id?}', [ShoppingcartsController::class, 'deleteProduct'])->name('user.cartDelete')->middleware('auth');
+    Route::get('/sub/{id?}', [ShoppingcartsController::class, 'subtractProduct'])->name('user.cartProductSub')->middleware('auth');
+    Route::get('/sum/{id?}', [ShoppingcartsController::class, 'sumProduct'])->name('user.cartProductSum')->middleware('auth');
+    });
 });
