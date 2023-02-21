@@ -31,7 +31,7 @@ Route::get('/signup', function () {
 Route::post("/signup", [UsersController::class, "create"])->name("user.create")->middleware('guest');
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
-Route::post('/product/addProduct', [ShoppingcartsController::class, 'addProduct'])->name('cart.addProduct');
+Route::post('/product/addProduct', [ShoppingcartsController::class, 'addProduct'])->name('cart.addProduct')->middleware('auth');;
 
 Route::get('/{name}', [CategoriesController::class, 'categoryProducts'])->name('category');
 

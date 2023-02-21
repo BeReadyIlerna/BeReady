@@ -13,7 +13,7 @@ class ShoppingcartsController extends Controller
     {
         $cart = Shoppingcart::where('user_id', Auth::id())->first();
         $products = $cart->products;
-        $totalPrice = 0;
+        $totalPrice = $cart->total;
         foreach ($products as $product) {
             $totalPrice += $product->total * $product->pivot->quantity;
         }
