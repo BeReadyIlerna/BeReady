@@ -145,7 +145,7 @@
             </div>
 
             <div class="form-floating col-md-4">
-                <input class="form-control" id="password" type="password" name="current_password"
+                <input class="form-control" id="password" type="password" name="password_confirmation"
                     placeholder="Contraseña" data-sb-validations="required" />
                 <label for="password" class="mx-2">Repetir contraseña</label>
             </div>
