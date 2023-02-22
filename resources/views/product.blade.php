@@ -1,5 +1,9 @@
 @extends('templates.general')
 
+@section('title')
+    BeReady - {{$product->name}}
+@endsection
+
 @section('body')
     <section class="container d-grid py-5 mb-5">
         <div class="row">
@@ -59,7 +63,7 @@
                     <div class="row mt-4">
                         <span class="fw-bold col-4">Envío: </span>
                         <span class="fw-bold text-success col-8">Envío GRATIS <a href="#"><i
-                                    class="bi bi-info-circle-fill text-dark"></i></a></span>
+                            class="bi bi-info-circle-fill text-dark"></i></a></span>
                     </div>
                     <div class="row mt-4">
                         <span class="fw-bold col-4">Devolución: </span>

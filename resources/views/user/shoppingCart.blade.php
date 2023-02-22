@@ -1,5 +1,9 @@
 @extends('templates.general')
 
+@section('title')
+  BeReady - Mi cesta
+@endsection
+
 @section('body')
     <section class="h-100 bg content-cart">
         <div class="container py-5 h-100">

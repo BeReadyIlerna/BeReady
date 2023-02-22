@@ -1,5 +1,9 @@
 @extends('templates.user')
 
+@section('title')
+  BeReady - Panel de usuario
+@endsection
+
 @section('userContent')
     <section class="container">
         <h1>Mis Datos</h1>

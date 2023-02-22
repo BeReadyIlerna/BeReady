@@ -1,5 +1,9 @@
 @extends('templates.general')
 
+@section('title')
+  BeReady - Iniciar sesión
+@endsection
+
 @section('body')
     <div class="div-body col-12">
 

@@ -21,3 +21,4 @@ function closePopup() {
     let headerPc = document.getElementById("header-pc");
     headerPc.classList.add("sticky-lg-top");
 }
+
