@@ -79,8 +79,9 @@ class ProductsController extends Controller
     public function showProduct()
     {
         $products = Product::paginate(10);
-        return view('admin.dashboard', @compact('products'));
+        return view('admin.products', @compact('products'));
     }
+    
     public function editProduct($id)
     {
         $categories = Category::all();

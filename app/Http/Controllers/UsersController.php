@@ -24,4 +24,9 @@ class UsersController extends Controller
       return view('user.support', @compact('user'));
    }
 
+   public function showUsers()
+   {
+       $users = User::paginate(10);
+       return view('admin.users', @compact('users'));
+   }
 }

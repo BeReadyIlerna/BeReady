@@ -13,18 +13,26 @@
                         id="menu">
 
                         <li class="py-2">
+                            <a href={{ route('admin.users') }} class="text-white px-0 align-middle h5">
+                                <i class="fs-4 bi-person-fill-gear"></i> <span class="ms-1 d-none d-sm-inline">Usuarios</span></a>
+                        </li>
+                        <li class="py-2">
+                            <a href={{ route('admin.categories') }} class="text-white px-0 align-middle h5">
+                                <i class="fs-4 bi bi-tags-fill"></i> <span class="ms-1 d-none d-sm-inline">Categorías</span></a>
+                        </li>
+                        <li class="py-2">
                             <a href={{ route('admin.products') }} class="text-white px-0 align-middle h5">
-                                <i class="fs-4 bi-person-fill-gear"></i> <span class="ms-1 d-none d-sm-inline">Productos</span></a>
+                                <i class="fs-4 bi-basket-fill"></i> <span class="ms-1 d-none d-sm-inline">Productos</span></a>
                         </li>
                         <li class="py-2">
                             <a href="#submenu2" data-bs-toggle="collapse" class="px-0 align-middle text-white h5">
                                 <i class="fs-4 bi-list-ul"></i> <span class="ms-1 d-none d-sm-inline">Añadir Contenido</span> </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href={{ route('product.new') }} class="text-white px-0"> <span class="d-none d-sm-inline">Crear Producto</span></a>
+                                    <a href={{ route('category.new') }} class="text-white px-0"> <span class="d-none d-sm-inline">Crear Categoría</span></a>
                                 </li>
                                 <li class="w-100">
-                                    <a href={{ route('category.new') }} class="text-white px-0"> <span class="d-none d-sm-inline">Crear Categoría</span></a>
+                                    <a href={{ route('product.new') }} class="text-white px-0"> <span class="d-none d-sm-inline">Crear Producto</span></a>
                                 </li>
                             </ul>
                         </li>

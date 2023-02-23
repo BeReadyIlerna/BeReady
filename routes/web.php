@@ -48,7 +48,11 @@ Route::prefix('/admin')->group(function () {
 
     Route::post('/addcategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
     
-    Route::get('/',[ProductsController::class, 'showProduct'])->name('admin.products')->middleware('admin');
+    Route::get('/products',[ProductsController::class, 'showProduct'])->name('admin.products')->middleware('admin');
+
+    Route::get('/categories',[CategoriesController::class, 'showCategories'])->name('admin.categories')->middleware('admin');
+
+    Route::get('/users',[UsersController::class, 'showUsers'])->name('admin.users')->middleware('admin');
 
     Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
 
