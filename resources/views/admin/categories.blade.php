@@ -5,6 +5,13 @@
 @endsection
 
 @section('adminContent')
+    <h1>Categorías</h1>
+
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
     <table class="table">
         <thead>
             <tr>
@@ -31,6 +38,6 @@
     </table>
 
     <div class="justify-content-center d-flex text-center">
-        {{$categories->links() }}
+        {{ $categories->links() }}
     </div>
 @endsection

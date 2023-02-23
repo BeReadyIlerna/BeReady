@@ -62,7 +62,7 @@
                 <div class="form-floating mb-3">
                     <select class="form-select" id="category" aria-label="Categoría" name="category" required>
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}" {{ old('category') == $category->id ? 'selected' : '' }}>
+                            <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>
                                 {{ $category->name }}
                             </option>
                         @endforeach
@@ -71,9 +71,21 @@
                 </div>
 
                 <div class="form-floating mb-3">
+                    <select class="form-select" id="status" aria-label="Estado" name="status" required>
+                        <option value="enabled" {{ $product->status == 'enabled' ? 'selected' : '' }}>
+                            Disponible
+                        </option>
+                        <option value="disabled" {{ $product->status == 'disabled' ? 'selected' : '' }}>
+                            No disponible
+                        </option>
+                    </select>
+                    <label for="status" class="mx-2">Estado<span class="text-danger">*</span></label>
+                </div>
+
+                <div class="form-floating mb-3">
                     <input class="form-control" id="image" type="file" name="image" placeholder="Imagen"
                         accept="image/png, image/jpeg, image/webp" data-sb-validations="required"
-                        value="{{ old('image') }}" required />
+                        value="{{ $product->image }}" required />
                     <label for="image">Imagen<span class="text-danger">*</span></label>
                 </div>
 
