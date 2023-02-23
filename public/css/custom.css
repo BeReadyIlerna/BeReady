@@ -296,7 +296,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: -25px;
     cursor: pointer;
     z-index: 20;
-    border: 1px white solid;
 }
 
 .close-btn .bar {
@@ -394,11 +393,4 @@ input[type=number]::-webkit-outer-spin-button {
     .link-view-cart:hover {
         text-decoration: none;
     }
-
-    /* .reduced-text {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 70px;
-    } */
 }
