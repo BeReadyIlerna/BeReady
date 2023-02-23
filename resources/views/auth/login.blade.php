@@ -37,9 +37,9 @@
                     <label for="precio">Contraseña</label>
                 </div>
 
-                <div class="row text-center mt-2">
+                {{-- <div class="row text-center mt-2">
                     <a href="#">He olvidado mi contraseña</a>
-                </div>
+                </div> --}}
                 <div class="row mt-4 d-grid justify-content-center">
                     <button type="submit" class="btn btn-primary btn-lg">
                         Iniciar sesión

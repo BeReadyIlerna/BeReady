@@ -30,6 +30,7 @@ class CreateNewUser implements CreatesNewUsers
                 'email',
                 'min:0',
                 'max:255',
+                // 'regex:',
                 Rule::unique(User::class),
             ],
             "phone" => ["required", "numeric", "digits:9"],
@@ -37,7 +38,7 @@ class CreateNewUser implements CreatesNewUsers
             "way_name" => ["required", "min:0", "max:255"],
             "province" => ["required"],
             "town" => ["required"],
-            "zipcode" => ["required"]
+            "zipcode" => ["required", "numeric", "digits:5"]
         ])->validate();
 
         $address = new Address();

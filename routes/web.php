@@ -49,6 +49,7 @@ Route::prefix('/admin')->group(function () {
     Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
     
     Route::get('/',[ProductsController::class, 'showProduct'])->name('admin.dashboard')->middleware('admin');
+
 });
 
 Route::prefix('/user')->group(function () {
