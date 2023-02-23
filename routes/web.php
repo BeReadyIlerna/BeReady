@@ -33,7 +33,7 @@ Route::get('/signup', function () {
 Route::post("/signup", [UsersController::class, "create"])->name("user.create")->middleware('guest');
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
-Route::post('/product/addProduct', [ShoppingcartsController::class, 'addProduct'])->name('cart.addProduct')->middleware('auth');
+Route::post('/product/addproduct', [ShoppingcartsController::class, 'addProduct'])->name('cart.addProduct')->middleware('auth');
 
 Route::post('/', [OrdersController::class, 'makeOrder'])->name('user.makeOrder')->middleware('auth');
 
@@ -44,9 +44,9 @@ Route::prefix('/admin')->group(function () {
         return view('admin.newcategory');
     })->name('category.new')->middleware('admin');
     
-    Route::post('/addProduct', [ProductsController::class, 'create'])->name('product.create')->middleware('admin');
+    Route::post('/addproduct', [ProductsController::class, 'create'])->name('product.create')->middleware('admin');
 
-    Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
+    Route::post('/addcategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
     
     Route::get('/',[ProductsController::class, 'showProduct'])->name('admin.dashboard')->middleware('admin');
 
@@ -54,9 +54,9 @@ Route::prefix('/admin')->group(function () {
 
 Route::prefix('/user')->group(function () {
     Route::get('/', [UsersController::class, 'showData'])->name('user.data')->middleware('auth');
-    Route::put('/adressUpdate', [AddressesController::class, 'update'])->name('user.adressUpdate')->middleware('auth');
+    Route::put('/adress-update', [AddressesController::class, 'update'])->name('user.adressUpdate')->middleware('auth');
     
-    Route::get('/myOrders', [UsersController::class, 'showData'])->name('user.orders')->middleware('auth');
+    Route::get('/orders', [UsersController::class, 'showData'])->name('user.orders')->middleware('auth');
     
     Route::get('/support', [UsersController::class, 'supportView'])->name('user.support')->middleware('auth');
     
