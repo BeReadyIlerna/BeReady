@@ -1,5 +1,9 @@
 @extends('templates.general')
 
+@section('title')
+    BeReady - Panel de administración
+@endsection
+
 @section('body')
     <div class="container-fluid">
         <div class="row flex-nowrap">
@@ -68,10 +72,10 @@
                                 <td>{{ $product->description }}</td>
                                 <td>{{ $product->IVA }}%</td>
                                 <td>{{ $product->total }}€</td>
-                                <td><button type="button" class="btn btn-primary icon-btn">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </button></td>
-                                <td>{{ $product->total }}€</td>
+                                <td><button type="button" class="btn-primary btn-sm"><i
+                                            class="bi bi-pencil-square fs-5"></i></button></td>
+                                <td><button type="button" class="btn-danger btn-sm"><i
+                                            class="bi bi-trash3-fill fs-5"></i></button></td>
                             </tr>
                         @endforeach
                     </tbody>
