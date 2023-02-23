@@ -30,6 +30,7 @@ class CreateNewUser implements CreatesNewUsers
                 'email',
                 'min:0',
                 'max:255',
+                // 'regex:',
                 Rule::unique(User::class),
             ],
             "phone" => ["required", "numeric", "digits:9"],
