@@ -59,8 +59,9 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/editproduct/{id?}',[ProductsController::class, 'editProduct'])->name('admin.editproduct')->middleware('admin');
 
-    Route::post('/editproduct/{id?}',[ProductsController::class, 'saveEditedProduct'])->name('admin.editsproduct')->middleware('admin');
+    Route::post('/editproduct/{id?}',[ProductsController::class, 'saveEditedProduct'])->name('admin.editproduct')->middleware('admin');
 
+    Route::get('/deleteproduct/{id?}', [ProductsController::class, 'deleteproduct'])->name('admin.deleteproduct')->middleware('admin');
 });
 
 Route::prefix('/user')->group(function () {

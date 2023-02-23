@@ -22,7 +22,6 @@
                 <th scope="col">Teléfono</th>
                 <th scope="col">Rol</th>
                 <th scope="col">Editar</th>
-                <th scope="col">Eliminar</th>
             </tr>
         </thead>
         <tbody>
@@ -36,8 +35,6 @@
                     <td>{{ $user->role }}</td>
                     <td><a href="{{ route('admin.editproduct', $user->id) }}"><button type="button"
                                 class="btn-primary btn-sm"><i class="bi bi-pencil-square fs-5"></i></button></a></td>
-                    <td><button type="button" class="btn-danger btn-sm"><i class="bi bi-trash3-fill fs-5"></i></button>
-                    </td>
                 </tr>
             @endforeach
         </tbody>

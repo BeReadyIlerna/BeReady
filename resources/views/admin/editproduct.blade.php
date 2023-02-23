@@ -11,7 +11,7 @@
                 <h2>Editar el producto</h2>
             </div>
 
-            <form id="contactForm" action="{{ route('admin.editsproduct') }}" method="POST" enctype='multipart/form-data'>
+            <form id="editProduct" action="{{ route('admin.editproduct') }}" method="POST" enctype='multipart/form-data'>
                 @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
                 @if (session('message'))
                     <div class="alert alert-success">
@@ -79,13 +79,13 @@
                             No disponible
                         </option>
                     </select>
-                    <label for="status" class="mx-2">Estado<span class="text-danger">*</span></label>
+                    <label for="status">Estado<span class="text-danger">*</span></label>
                 </div>
 
                 <div class="form-floating mb-3">
                     <input class="form-control" id="image" type="file" name="image" placeholder="Imagen"
                         accept="image/png, image/jpeg, image/webp" data-sb-validations="required"
-                        value="{{ $product->image }}" required />
+                        value="{{ $product->image }}"  />
                     <label for="image">Imagen<span class="text-danger">*</span></label>
                 </div>
 

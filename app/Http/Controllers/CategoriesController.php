@@ -39,7 +39,7 @@ class CategoriesController extends Controller
     {
         try {
             $category = Category::where('name', $categoryName)->first();
-            $products = Product::where('category_id', $category->id)->paginate(8);
+            $products = Product::where('category_id', $category->id)->where('status', 'enabled')->paginate(8);
             return view('category', @compact('products', 'category'));
         } catch (Exception $e) {
             abort(404);
