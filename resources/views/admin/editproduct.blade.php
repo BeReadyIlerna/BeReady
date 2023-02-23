@@ -1,4 +1,4 @@
-@extends('templates.general')
+@extends('templates.admin')
 
 @section('title')
   BeReady - Editar Producto

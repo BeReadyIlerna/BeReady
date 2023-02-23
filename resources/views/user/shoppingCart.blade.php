@@ -22,10 +22,10 @@
                                         <hr class="my-4">
 
                                         @if (session('error'))
-                                        <div class="alert alert-danger">
-                                            {{ session('error') }}
-                                        </div>
-                                    @endif
+                                            <div class="alert alert-danger">
+                                                {{ session('error') }}
+                                            </div>
+                                        @endif
 
                                         @foreach ($products as $product)
                                             <!-- Product -->
@@ -48,7 +48,7 @@
 
                                                     <input id="form1" min="1" name="quantity"
                                                         value="{{ $product->pivot->quantity }}" type="number"
-                                                        class="form-control form-control-sm text-center" disabled/>
+                                                        class="form-control form-control-sm text-center" disabled />
 
                                                     <a href="{{ route('user.cartProductSum') . '/' . $product->id }}"><button
                                                             class="btn px-2">
@@ -56,7 +56,8 @@
                                                         </button></a>
                                                 </div>
                                                 <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                    <h6 class="mb-0">{{ $product->total *  $product->pivot->quantity}} €</h6>
+                                                    <h6 class="mb-0">{{ $product->total * $product->pivot->quantity }} €
+                                                    </h6>
                                                 </div>
                                                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                     <a href="{{ route('user.cartDelete') . '/' . $product->id }}"
@@ -134,7 +135,8 @@
 
                                         <form action="{{ route('user.makeOrder') }}" method="post">
                                             @csrf
-                                            <button type="submit" class="btn btn-block btn-lg btn-micesta" {{Auth::user()->role == 'admin' ? 'disabled' : ''}}>
+                                            <button type="submit" class="btn btn-block btn-lg btn-micesta"
+                                                {{ Auth::user()->role == 'admin' ? 'disabled' : '' }}>
                                                 <h5>Tramitar pedido</h5>
                                             </button>
                                         </form>

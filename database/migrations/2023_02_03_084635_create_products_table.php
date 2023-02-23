@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string("image")->default(0);
             $table->float("IVA");
             $table->float("total");
+            $table->enum("status",["enabled", "disabled"]);
             $table->foreignId("category_id")->references("id")->on("categories"); 
             $table->timestamps();
         });
