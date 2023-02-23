@@ -5,7 +5,6 @@
 @endsection
 
 @section('banner')
-    <!-- TODO cambiar ruta de las imágenes -->
     <!--Carrusel de imágenes-->
     <div id="carouselId" class="carousel slide border-bottom" data-bs-ride="carousel">
         <ol class="carousel-indicators">
@@ -25,11 +24,11 @@
                 <img src="{{ URL::asset('img/sanvalentin2.webp') }}" class="w-100 d-block" alt="imagen del carrusel" />
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev" >
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
             <span class="carousel-control-prev"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next" >
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
             <span class="carousel-control-next"></span>
             <span class="visually-hidden">Next</span>
         </button>

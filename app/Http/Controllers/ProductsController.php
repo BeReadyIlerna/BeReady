@@ -75,12 +75,12 @@ class ProductsController extends Controller
         }
     }
 
-    public function showProduct()
+    public function showProduct($message = "")
     {
         $products = Product::paginate(10);
-        return view('admin.products', @compact('products'));
+        return view('admin.products', @compact('products'))->with('message', $message);
     }
-    
+
     public function editProduct($id)
     {
         $categories = Category::all();
@@ -92,16 +92,55 @@ class ProductsController extends Controller
     {
 
         $actualizar = Product::findOrFail($request->id);
-        $actualizar->name = $request->name;
-        $actualizar->price = $request->price;
-        $actualizar->stock = $request->stock;
-        $actualizar->description = $request->description;
-        $actualizar->image = $request->image;
-        $actualizar->IVA = $request->iva;
-        $actualizar->total = $request->total;
-        $actualizar->save();
 
-        $pProduct = new ProductsController;
-        return $pProduct->showProduct();
+        if ($request->name === $actualizar->name) {
+            $request->validate([
+                'name' => 'required|string|min:4|max:255',
+                'price' => 'required|numeric|min:0',
+                'stock' => 'required|integer|min:0',
+                'description' => 'required|string|min:10|max:65000',
+                'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+                'iva' => 'required|integer|min:0',
+                'category' => 'required'
+            ]);
+        } else {
+            $request->validate([
+                'name' => 'required|unique:products,name|string|min:4|max:255',
+                'price' => 'required|numeric|min:0',
+                'stock' => 'required|integer|min:0',
+                'description' => 'required|string|min:10|max:65000',
+                'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+                'iva' => 'required|integer|min:0',
+                'category' => 'required'
+            ]);
+        }
+
+        $errors = $request->has('errors');
+
+        if (!$errors) {
+
+            $actualizar->name = $request->name;
+            $actualizar->price = $request->price;
+            $actualizar->stock = $request->stock;
+            $actualizar->description = $request->description;
+            $actualizar->image = $request->image;
+            $actualizar->IVA = $request->iva;
+            $actualizar->total = ($request['price'] * ($request['iva'] / 100)) + $request['price'];
+            $actualizar->category_id = $request['category'];
+            $actualizar->update();
+
+            $imageName = "image-" . $actualizar->id . '.' . $request->image->extension();
+            $request->image->move(public_path('img'), $imageName);
+            $actualizar->image = $imageName;
+
+            $actualizar->update();
+
+            $pProduct = new ProductsController;
+            $message = 'El producto se ha actualizado correctamente';
+            return $pProduct->showProduct($message);
+        } else {
+            $errors = $request->errors();
+            return back()->with('errors', $errors);
+        }
     }
 }

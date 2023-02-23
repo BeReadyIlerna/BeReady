@@ -22,10 +22,10 @@
                                         <hr class="my-4">
 
                                         @if (session('error'))
-                                        <div class="alert alert-danger">
-                                            {{ session('error') }}
-                                        </div>
-                                    @endif
+                                            <div class="alert alert-danger">
+                                                {{ session('error') }}
+                                            </div>
+                                        @endif
 
                                         @foreach ($products as $product)
                                             <!-- Product -->
@@ -36,7 +36,6 @@
                                                             class="img-fluid rounded-3" alt="imagen del producto"></a>
                                                 </div>
                                                 <div class="col-md-3 col-lg-3 col-xl-3 mb-3 mb-md-0">
-                                                    {{-- <h6 class="text-muted">{{$category->name}}</h6> --}}
                                                     <h6 class="text-black">{{ $product->name }}</h6>
                                                 </div>
                                                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex mb-3 mb-md-0">
@@ -48,7 +47,7 @@
 
                                                     <input id="form1" min="1" name="quantity"
                                                         value="{{ $product->pivot->quantity }}" type="number"
-                                                        class="form-control form-control-sm" />
+                                                        class="form-control form-control-sm text-center" disabled />
 
                                                     <a href="{{ route('user.cartProductSum') . '/' . $product->id }}"><button
                                                             class="btn px-2">
@@ -56,7 +55,8 @@
                                                         </button></a>
                                                 </div>
                                                 <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                    <h6 class="mb-0">{{ $product->total }} €</h6>
+                                                    <h6 class="mb-0">{{ $product->total * $product->pivot->quantity }} €
+                                                    </h6>
                                                 </div>
                                                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                     <a href="{{ route('user.cartDelete') . '/' . $product->id }}"
@@ -77,26 +77,12 @@
                                     <div class="p-5">
                                         <h3 class="fw-bold mb-5 mt-2 pt-1">Resumen</h3>
                                         <hr class="my-4">
-
                                         <div class="d-flex justify-content-between mb-4">
                                             <h5>Subtotal</h5>
                                             <h5 id="precioSubtotal">{{ $totalPrice }}</h5>
                                         </div>
 
-                                        <h5 class="mb-3">Tipo de envío</h5>
-
-                                        <!-- TODO HOVER OPCIONES -->
-                                        <div class="mb-4 pb-2">
-                                            <select id="selectEnvio" class="form-select">
-                                                <option name="optionEnvio" value="1">Envío estándar 4€ (48-72 horas)
-                                                </option>
-                                                <option name="optionEnvio" value="2">Envío express 10€ (24 horas)
-                                                </option>
-                                            </select>
-                                        </div>
-
                                         <h5 class="mb-3">Código promocional</h5>
-
                                         <div class="mb-5">
                                             <div class="form-outline">
                                                 <input type="text" id="form3Examplea2" class="form-control"
@@ -105,8 +91,6 @@
                                         </div>
 
                                         <hr class="my-4">
-
-
 
                                         <div class="d-flex justify-content-between mb-5">
                                             <h5 class="text-uppercase">TOTAL COMPRA</h5>
@@ -134,7 +118,8 @@
 
                                         <form action="{{ route('user.makeOrder') }}" method="post">
                                             @csrf
-                                            <button type="submit" class="btn btn-block btn-lg btn-micesta" {{Auth::user()->role == 'admin' ? 'disabled' : ''}}>
+                                            <button type="submit" class="btn btn-block btn-lg btn-micesta"
+                                                {{ Auth::user()->role == 'admin' ? 'disabled' : '' }}>
                                                 <h5>Tramitar pedido</h5>
                                             </button>
                                         </form>
