@@ -19,6 +19,10 @@ class User extends Authenticatable
         return $this->belongsTo(Order::class);
     }
 
+    public function cart(){
+        return $this->hasOne(Shoppingcart::class);
+    }
+
     //* DEFAULT
      use HasApiTokens, HasFactory, Notifiable;
 

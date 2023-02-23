@@ -1,5 +1,9 @@
 @extends('templates.general')
 
+@section('title')
+    BeReady - {{$category->name}}
+@endsection
+
 @section('body')
 
     <section id="products" class="section-products">

@@ -1,5 +1,9 @@
 @extends('templates.general')
 
+@section('title')
+  BeReady - Nueva categoría
+@endsection
+
 @section('body')
     <div class="div-body col-12">
         <div class="p-4 border rounded my-5 py-5 justify-content-center container col-12 col-lg-6">

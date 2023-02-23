@@ -1,5 +1,9 @@
 @extends('templates.user')
 
+@section('title')
+  BeReady - Soporte
+@endsection
+
 @section('userContent')
     <section class="container">
         <h1>Contacta con nosotros</h1>

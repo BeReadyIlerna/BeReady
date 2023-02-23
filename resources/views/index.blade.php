@@ -1,5 +1,9 @@
 @extends('templates.general')
 
+@section('title')
+    BeReady - Inicio
+@endsection
+
 @section('banner')
     <!-- TODO cambiar ruta de las imágenes -->
     <!--Carrusel de imágenes-->
