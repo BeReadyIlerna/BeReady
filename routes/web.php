@@ -6,6 +6,7 @@ use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ShoppingcartsController;
 use App\Http\Controllers\UsersController;
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -56,7 +57,8 @@ Route::prefix('/user')->group(function () {
     Route::get('/', [UsersController::class, 'showData'])->name('user.data')->middleware('auth');
     Route::put('/adress-update', [AddressesController::class, 'update'])->name('user.adressUpdate')->middleware('auth');
     
-    Route::get('/orders', [UsersController::class, 'showData'])->name('user.orders')->middleware('auth');
+    Route::get('/orders', [UsersController::class, 'showOrders'])->name('user.orders')->middleware('auth');
+    Route::get('/orders/{id?}', [OrdersController::class, 'showOrderDetails'])->name('user.orderdetails')->middleware('auth');
     
     Route::get('/support', [UsersController::class, 'supportView'])->name('user.support')->middleware('auth');
     

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Shoppingcart;
 use App\Http\Controllers\ProductsController;
+use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,5 +38,21 @@ class OrdersController extends Controller
 
             return $pController->products();
         }
+    }
+
+    public function showOrderDetails($id)
+    {
+        $user = User::findOrFail(Auth::id());
+        $order = Order::findOrFail($id);
+        $products = $order->products;
+        
+        if ($order->user_id === Auth::id()) {
+            return view('user.orderdetails', @compact('user', 'products', 'order'));
+        } else {
+            $pProduct = new ProductsController;
+
+            return $pProduct->products();
+        }
+
     }
 }
