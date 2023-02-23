@@ -134,7 +134,7 @@
 
                                         <form action="{{ route('user.makeOrder') }}" method="post">
                                             @csrf
-                                            <button type="submit" class="btn btn-block btn-lg btn-micesta">
+                                            <button type="submit" class="btn btn-block btn-lg btn-micesta" {{Auth::user()->role == 'admin' ? 'disabled' : ''}}>
                                                 <h5>Tramitar pedido</h5>
                                             </button>
                                         </form>

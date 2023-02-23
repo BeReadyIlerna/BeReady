@@ -43,12 +43,13 @@ Route::prefix('/admin')->group(function () {
     Route::get('/newcategory', function () {
         return view('admin.newcategory');
     })->name('category.new')->middleware('admin');
-
+    
     Route::post('/addProduct', [ProductsController::class, 'create'])->name('product.create')->middleware('admin');
 
     Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
+    
+    Route::get('/',[ProductsController::class, 'showProduct'])->name('admin.dashboard')->middleware('admin');
 
-    Route::get('/dashboard',[ProductsController::class, 'showProduct'])->name('admin.dashboard')->middleware('admin');
 });
 
 Route::prefix('/user')->group(function () {
@@ -56,7 +57,7 @@ Route::prefix('/user')->group(function () {
     Route::put('/adressUpdate', [AddressesController::class, 'update'])->name('user.adressUpdate')->middleware('auth');
     
     Route::get('/myOrders', [UsersController::class, 'showData'])->name('user.orders')->middleware('auth');
-
+    
     Route::get('/support', [UsersController::class, 'supportView'])->name('user.support')->middleware('auth');
     
     Route::prefix('/cart')->group(function () {
