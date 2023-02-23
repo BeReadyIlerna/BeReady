@@ -46,11 +46,11 @@ Route::prefix('/admin')->group(function () {
 
     Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
 
-    Route::post('/dashboard',[ProductsController::class ,'showProduct'])->name('product.view')->middleware('admin');
+    Route::get('/dashboard',[ProductsController::class, 'showProduct'])->name('admin.dashboard')->middleware('admin');
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard')->middleware('admin');
+    // Route::get('/dashboard', function () {
+    //     return view('admin.dashboard');
+    // })->name('dashboard')->middleware('admin');
 });
 
 Route::prefix('/user')->group(function () {

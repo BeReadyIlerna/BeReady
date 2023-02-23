@@ -13,57 +13,70 @@
                         id="menu">
 
                         <li class="py-2">
-                            <a href="{{route("category.new")}}" class="text-white px-0 align-middle h5">
-                                <i class="fs-4 bi-person-fill-gear"></i> <span class="ms-1 d-none d-sm-inline">Crear categoria</span></a>
+                            <a href="{{ route('category.new') }}" class="text-white px-0 align-middle h5">
+                                <i class="fs-4 bi-person-fill-gear"></i> <span class="ms-1 d-none d-sm-inline">Crear
+                                    categoria</span></a>
                         </li>
                         <li class="py-2">
-                            <a href="{{route("product.new")}}"  class="text-white px-0 align-middle h5">
-                                <i class="fs-4 bi-list-ul"></i> <span class="ms-1 d-none d-sm-inline">Crear Producto</span></a>
+                            <a href="{{ route('product.new') }}" class="text-white px-0 align-middle h5">
+                                <i class="fs-4 bi-list-ul"></i> <span class="ms-1 d-none d-sm-inline">Crear
+                                    Producto</span></a>
                         </li>
                         <li class="py-2">
                             <a href="#submenu3" data-bs-toggle="collapse" class="px-0 align-middle text-white h5">
-                                <i class="fs-4 bi-question-circle-fill"></i> <span class="ms-1 d-none d-sm-inline">Ayuda</span> </a>
+                                <i class="fs-4 bi-question-circle-fill"></i> <span
+                                    class="ms-1 d-none d-sm-inline">Ayuda</span> </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="#" class="text-white px-0"> <span class="d-none d-sm-inline">Atención al cliente</span></a>
+                                    <a href="#" class="text-white px-0"> <span class="d-none d-sm-inline">Atención al
+                                            cliente</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-white px-0"> <span class="d-none d-sm-inline">Cerrar sesión</span></a>
+                                    <a href="#" class="text-white px-0"> <span class="d-none d-sm-inline">Cerrar
+                                            sesión</span></a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                     <hr>
 
-                    
+
                 </div>
             </div>
             <div class="col py-3 ">
-                <table>
+                <table class="table">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Stock</th>
-                            <th>Descripcion</th>
-                            <th>Imagen</th>
-                            <th>IVA</th>
-                            <th>Total</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">IVA</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Eliminar</th>
                         </tr>
-                        
                     </thead>
                     <tbody>
-                        <tr>
-                            @foreach ($products as $product )
-                            <td>{{$product->id}}</td>
-                            @endforeach
-                            
-                        </tr>
+                        @foreach ($products as $product)
+                            <tr>
+                                <td scope='row'>{{ $product->id }}</td>
+                                <td>{{ $product->name }}</td>
+                                <td>{{ $product->price }}€</td>
+                                <td>{{ $product->stock }} ud</td>
+                                <td>{{ $product->description }}</td>
+                                <td>{{ $product->IVA }}%</td>
+                                <td>{{ $product->total }}€</td>
+                                <td><button type="button" class="btn btn-primary icon-btn">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button></td>
+                                <td>{{ $product->total }}€</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
-                
-                
+
             </div>
         </div>
     </div>
