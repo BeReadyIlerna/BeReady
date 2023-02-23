@@ -58,6 +58,7 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/editproduct/{id?}',[ProductsController::class, 'editProduct'])->name('admin.editproduct')->middleware('admin');
 
+    Route::post('/editproduct/{id?}',[ProductsController::class, 'saveEditedProduct'])->name('admin.editsproduct')->middleware('admin');
 
 });
 
