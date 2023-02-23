@@ -11,7 +11,7 @@
                 <h2>Editar el producto</h2>
             </div>
 
-            <form id="contactForm" action="{{ route('product.create') }}" method="POST" enctype='multipart/form-data'>
+            <form id="contactForm" action="{{ route('admin.editsproduct') }}" method="POST" enctype='multipart/form-data'>
                 @csrf {{-- Cláusula para obtener un token de formulario al enviarlo --}}
                 @if (session('message'))
                     <div class="alert alert-success">
@@ -48,9 +48,9 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="iva" type="number" name="iva" placeholder="IVA"
+                    <input class="form-control" id="iva" type="number" name="total" placeholder="total"
                     data-sb-validations="required" value="{{ $product->total }}" required />
-                    <label for="iva">IVA<span class="text-danger">*</span></label>
+                    <label for="iva">Total<span class="text-danger">*</span></label>
                 </div>
                 
                 <div class="form-floating mb-3">
@@ -60,8 +60,8 @@
                 </div>
                 
                 <div class="form-floating mb-3">
-                    <input class="form-control desc-form" id="description" type="text" name="description"
-                    data-sb-validations="required" value="{{ $product->description }}" required></input>
+                    <textarea class="form-control desc-form" id="description" type="text" name="description"
+                    data-sb-validations="required" value="" required>{{ $product->description }}</textarea>
                     <label for="descripcion">Descripción <span class="text-danger">*</span></label>
                 </div>
                 
@@ -82,6 +82,8 @@
                     value="{{ $product->image }}" required />
                     <label for="image">Imagen<span class="text-danger">*</span></label>
                 </div>
+
+                <input name="id" value="{{$product->id}}" hidden />
                 
                 <div class="justify-content-center d-flex">
                     <div class="d-grid col-6 col-lg-3">
