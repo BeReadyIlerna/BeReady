@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Address;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,6 +23,13 @@ class UsersController extends Controller
    {
       $user = User::findOrFail(Auth::id());
       return view('user.support', @compact('user'));
+   }
+
+   public function showOrders()
+   {
+      $user = User::findOrFail(Auth::id());
+      $orders = Order::where('user_id', Auth::id())->get();
+      return view('user.order', @compact('user', 'orders'));
    }
 
    public function showUsers()

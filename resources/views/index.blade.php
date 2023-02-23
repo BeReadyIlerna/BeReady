@@ -16,13 +16,13 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-                <img src="./img/banner.webp" class="w-100 d-block" alt="imagen del carrusel" />
+                <img src="{{ URL::asset('img/banner.webp') }}" class="w-100 d-block" alt="imagen del carrusel" />
             </div>
             <div class="carousel-item">
-                <img src="./img/sanvalentin.webp" class="w-100 d-block" alt="imagen del carrusel" />
+                <img src="{{ URL::asset('img/banner.webp') }}" class="w-100 d-block" alt="imagen del carrusel" />
             </div>
             <div class="carousel-item">
-                <img src="./img/sanvalentin2.webp" class="w-100 d-block" alt="imagen del carrusel" />
+                <img src="{{ URL::asset('img/sanvalentin2.webp') }}" class="w-100 d-block" alt="imagen del carrusel" />
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev" >
