@@ -37,7 +37,7 @@ class CreateNewUser implements CreatesNewUsers
             "way_name" => ["required", "min:0", "max:255"],
             "province" => ["required"],
             "town" => ["required"],
-            "zipcode" => ["required"]
+            "zipcode" => ["required", "numeric", "digits:5"]
         ])->validate();
 
         $address = new Address();
