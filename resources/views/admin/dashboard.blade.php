@@ -72,8 +72,8 @@
                                 <td>{{ $product->description }}</td>
                                 <td>{{ $product->IVA }}%</td>
                                 <td>{{ $product->total }}€</td>
-                                <td><button type="button" class="btn-primary btn-sm"><i
-                                            class="bi bi-pencil-square fs-5"></i></button></td>
+                                <td><a href="{{route('admin.editproduct', $product->id)}}"><button type="button" class="btn-primary btn-sm"><i
+                                    class="bi bi-pencil-square fs-5"></i></button></a></td>
                                 <td><button type="button" class="btn-danger btn-sm"><i
                                             class="bi bi-trash3-fill fs-5"></i></button></td>
                             </tr>

@@ -52,9 +52,8 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/dashboard',[ProductsController::class, 'showProduct'])->name('admin.dashboard')->middleware('admin');
 
-    // Route::get('/dashboard', function () {
-    //     return view('admin.dashboard');
-    // })->name('dashboard')->middleware('admin');
+    Route::get('/editproduct/{id?}',[ProductsController::class, 'editProduct'])->name('admin.editproduct')->middleware('admin');
+
 });
 
 Route::prefix('/user')->group(function () {

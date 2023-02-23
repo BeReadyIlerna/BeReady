@@ -81,4 +81,10 @@ class ProductsController extends Controller
         $products = Product::all();
         return view('admin.dashboard', @compact('products'));
     }
+    public function editProduct($id)
+    {
+        $categories = Category::all();
+        $product = Product::findOrFail($id); // Get selected product
+        return view('admin.editproduct', @compact('product', 'categories'));
+    }
 }
