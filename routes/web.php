@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ShoppingcartsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,19 +45,24 @@ Route::prefix('/admin')->group(function () {
     Route::get('/newcategory', function () {
         return view('admin.newcategory');
     })->name('category.new')->middleware('admin');
-    
+
     Route::post('/addProduct', [ProductsController::class, 'create'])->name('product.create')->middleware('admin');
 
     Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
-});
 
+    Route::get('/dashboard',[ProductsController::class, 'showProduct'])->name('admin.dashboard')->middleware('admin');
+
+    // Route::get('/dashboard', function () {
+    //     return view('admin.dashboard');
+    // })->name('dashboard')->middleware('admin');
+});
 
 Route::prefix('/user')->group(function () {
     Route::get('/myData', [UsersController::class, 'showData'])->name('user.data')->middleware('auth');
     Route::put('/adressUpdate', [AddressesController::class, 'update'])->name('user.adressUpdate')->middleware('auth');
     
     Route::get('/myOrders', [UsersController::class, 'showData'])->name('user.orders')->middleware('auth');
-    
+
     Route::get('/support', [UsersController::class, 'supportView'])->name('user.support')->middleware('auth');
     
     Route::prefix('/cart')->group(function () {

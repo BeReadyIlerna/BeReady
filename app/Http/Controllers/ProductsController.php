@@ -75,4 +75,10 @@ class ProductsController extends Controller
             return back()->with('errors', $errors);
         }
     }
+
+    public function showProduct()
+    {
+        $products = Product::all();
+        return view('admin.dashboard', @compact('products'));
+    }
 }
