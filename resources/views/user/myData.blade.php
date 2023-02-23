@@ -7,7 +7,7 @@
 @section('userContent')
     <section class="container">
         <h1>Mis Datos</h1>
-        <h3>Bienvenido {{ $user->name }}</h3>
+        <h3>Bienvenido {{Auth::user()->name}}</h3>
 
         <!--MODAL ADDRESS-->
         <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>

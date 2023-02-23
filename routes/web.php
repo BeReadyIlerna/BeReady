@@ -48,12 +48,9 @@ Route::prefix('/admin')->group(function () {
 
     Route::post('/addcategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
     
-    Route::get('/',[ProductsController::class, 'showProduct'])->name('admin.dashboard')->middleware('admin');
-
+    Route::get('/',[ProductsController::class, 'showProduct'])->name('admin.products')->middleware('admin');
 
     Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
-
-    Route::get('/dashboard',[ProductsController::class, 'showProduct'])->name('admin.dashboard')->middleware('admin');
 
     Route::get('/editproduct/{id?}',[ProductsController::class, 'editProduct'])->name('admin.editproduct')->middleware('admin');
 

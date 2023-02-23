@@ -1,10 +1,10 @@
-@extends('templates.general')
+@extends('templates.admin')
 
 @section('title')
   BeReady - Nuevo producto
 @endsection
 
-@section('body')
+@section('adminContent')
     <div class="div-body col-12">
         <div class="p-4 border rounded my-5 py-5 justify-content-center container col-12 col-lg-6">
             <div class="text-center py-3">
