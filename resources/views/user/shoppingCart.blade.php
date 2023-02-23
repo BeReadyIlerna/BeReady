@@ -48,7 +48,7 @@
 
                                                     <input id="form1" min="1" name="quantity"
                                                         value="{{ $product->pivot->quantity }}" type="number"
-                                                        class="form-control form-control-sm" />
+                                                        class="form-control form-control-sm text-center" disabled/>
 
                                                     <a href="{{ route('user.cartProductSum') . '/' . $product->id }}"><button
                                                             class="btn px-2">
@@ -56,7 +56,7 @@
                                                         </button></a>
                                                 </div>
                                                 <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                    <h6 class="mb-0">{{ $product->total }} €</h6>
+                                                    <h6 class="mb-0">{{ $product->total *  $product->pivot->quantity}} €</h6>
                                                 </div>
                                                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                     <a href="{{ route('user.cartDelete') . '/' . $product->id }}"
