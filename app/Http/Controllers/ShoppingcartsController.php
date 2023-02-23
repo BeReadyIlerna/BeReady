@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\Shoppingcart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,12 +26,18 @@ class ShoppingcartsController extends Controller
     public function addProduct(Request $request)
     {
         $cart = Shoppingcart::where('user_id', Auth::id())->first();
-        if(!$cart->products->contains($request['product'])){ // check if the product is already in the cart
-            $cart->products()->attach($request['product'], ['quantity' => $request->quantity ?? 1]);
-        } else{
-            $cart->products()->updateExistingPivot($request['product'], ['quantity' => $request->quantity ?? 1]);
+        $product = Product::findOrFail($request['product']);
+
+        if ($product->stock < $request->quantity || $product->stock < 1) {
+            return back()->with('error', 'No hay stock suficiente de este producto');
+        } else {
+            if (!$cart->products->contains($request['product'])) { // check if the product is already in the cart
+                $cart->products()->attach($request['product'], ['quantity' => $request->quantity ?? 1]);
+            } else {
+                $cart->products()->updateExistingPivot($request['product'], ['quantity' => $request->quantity ?? 1]);
+            }
+            return back();
         }
-        return back();
     }
 
     public function deleteProduct($id)
@@ -45,7 +52,7 @@ class ShoppingcartsController extends Controller
         $cart = Shoppingcart::where('user_id', Auth::id())->first();
         if ($cart->products()->where('product_id', $id)->pluck('quantity')[0] == 1) {
             $cart->products()->detach($id);
-        } else{
+        } else {
             $cart->products()->where('product_id', $id)->decrement('quantity');
         }
         return back();
@@ -54,7 +61,12 @@ class ShoppingcartsController extends Controller
     public function sumProduct($id)
     {
         $cart = Shoppingcart::where('user_id', Auth::id())->first();
-        $cart->products()->where('product_id', $id)->increment('quantity');
-        return back();
+        $product = Product::findOrFail($id);
+        if ($cart->products()->where('product_id', $id)->pluck('quantity')[0] ==  $product->stock) {
+            return back()->with('error', 'No hay stock suficiente de este producto');
+        }else{
+            $cart->products()->where('product_id', $id)->increment('quantity');
+            return back();
+        }
     }
 }
