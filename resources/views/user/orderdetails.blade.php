@@ -22,7 +22,7 @@
                         <div class="card-body">
                             <h6 class="card-title">{{ $product->name }}</h6>
                             <h5 class="card-title text-primary">{{ $product->price }}€/Ud</h5>
-                            <h6 class="card-title">Cantidad: </h6>
+                            <h6 class="card-title">Cantidad: {{$product->pivot->quantity}} </h6>
                             <p class="card-text"><small class="text-muted">{{ $product->category->name }}</small></p>
                             <p class="card-text">{{ $product->description }}</p>
                         </div>
