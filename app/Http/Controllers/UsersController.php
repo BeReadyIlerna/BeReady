@@ -32,4 +32,9 @@ class UsersController extends Controller
       return view('user.order', @compact('user', 'orders'));
    }
 
+   public function showUsers()
+   {
+       $users = User::paginate(10);
+       return view('admin.users', @compact('users'));
+   }
 }

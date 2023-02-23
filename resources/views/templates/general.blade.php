@@ -109,7 +109,7 @@
                                 <ul class="dropdown-menu products-open">
                                     @if (Auth::user()->role == 'admin')
                                         <li>
-                                            <a class="dropdown-item px-2 text-hover-white" href="{{ route('admin.dashboard') }}"><i
+                                            <a class="dropdown-item px-2 text-hover-white" href="{{ route('admin.products') }}"><i
                                                     class="bi bi-gear-fill"></i> Panel de administración</a>
                                         </li>
                                     @elseif (Auth::user()->role == 'client')
