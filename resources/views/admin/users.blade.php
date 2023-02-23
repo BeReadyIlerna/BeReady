@@ -32,9 +32,23 @@
                     <td>{{ $user->surname }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->phone }}</td>
-                    <td>{{ $user->role }}</td>
-                    <td><a href="{{ route('admin.editproduct', $user->id) }}"><button type="button"
-                                class="btn-primary btn-sm"><i class="bi bi-pencil-square fs-5"></i></button></a></td>
+                    <form action="{{ route('admin.edituser') }}" method="POST">
+                        @csrf
+                        <input name="id" value="{{ $user->id }}" hidden />
+                        <td>
+                            <select class="" id="role" aria-label="Rol" name="role" required>
+                                <option value="client" {{ $user->role == 'client' ? 'selected' : '' }}>
+                                    Cliente
+                                </option>
+                                <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>
+                                    Admin
+                                </option>
+                            </select>
+                        </td>
+                        {{-- <td>{{ $user->role }}</td> --}}
+                        <td><button type="submit" class="btn-primary btn-sm"><i
+                                    class="bi bi-check-lg fs-5"></i></button></a></td>
+                    </form>
                 </tr>
             @endforeach
         </tbody>

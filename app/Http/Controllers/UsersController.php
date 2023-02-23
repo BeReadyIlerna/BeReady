@@ -34,7 +34,16 @@ class UsersController extends Controller
 
    public function showUsers()
    {
-       $users = User::paginate(10);
-       return view('admin.users', @compact('users'));
+      $users = User::paginate(10);
+      return view('admin.users', @compact('users'));
+   }
+
+   public function editUser(Request $request)
+   {
+      $user = User::findOrFail($request->id);
+      $user->role = $request->role;
+      $user->save();
+
+      return redirect()->route('admin.users')->with('message', 'El rol del usuario ' . $user->id . ' ha sido modificado');
    }
 }
