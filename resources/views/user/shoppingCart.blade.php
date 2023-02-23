@@ -1,7 +1,7 @@
 @extends('templates.general')
 
 @section('title')
-  BeReady - Mi cesta
+    BeReady - Mi cesta
 @endsection
 
 @section('body')
@@ -20,6 +20,12 @@
                                             <h6 class="mb-0 text-muted">{{ count($products) }} Artículos</h6>
                                         </div>
                                         <hr class="my-4">
+
+                                        @if (session('error'))
+                                        <div class="alert alert-danger">
+                                            {{ session('error') }}
+                                        </div>
+                                    @endif
 
                                         @foreach ($products as $product)
                                             <!-- Product -->
@@ -128,7 +134,7 @@
 
                                         <form action="{{ route('user.makeOrder') }}" method="post">
                                             @csrf
-                                            <button type="submit" class="btn btn-block btn-lg btn-micesta">
+                                            <button type="submit" class="btn btn-block btn-lg btn-micesta" {{Auth::user()->role == 'admin' ? 'disabled' : ''}}>
                                                 <h5>Tramitar pedido</h5>
                                             </button>
                                         </form>

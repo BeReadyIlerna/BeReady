@@ -112,7 +112,7 @@
                                             <a class="dropdown-item px-2 text-hover-white" href="{{ route('admin.dashboard') }}"><i
                                                     class="bi bi-gear-fill"></i> Panel de administración</a>
                                         </li>
-                                    @elseif (Auth::user()->role == 'user')
+                                    @elseif (Auth::user()->role == 'client')
                                         <li>
                                             <a class="dropdown-item px-2 text-hover-white" href="{{ route('user.data') }}"><i
                                                     class="bi bi-person-circle"></i> Panel de usuario</a>

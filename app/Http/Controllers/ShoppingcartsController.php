@@ -43,7 +43,11 @@ class ShoppingcartsController extends Controller
     public function subtractProduct($id)
     {
         $cart = Shoppingcart::where('user_id', Auth::id())->first();
-        $cart->products()->where('product_id', $id)->decrement('quantity');
+        if ($cart->products()->where('product_id', $id)->pluck('quantity')[0] == 1) {
+            $cart->products()->detach($id);
+        } else{
+            $cart->products()->where('product_id', $id)->decrement('quantity');
+        }
         return back();
     }
 

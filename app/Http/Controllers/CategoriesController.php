@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use Exception;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -36,8 +37,13 @@ class CategoriesController extends Controller
 
     public function categoryProducts($categoryName)
     {
-        $category = Category::where('name', $categoryName)->first();
-        $products = Product::where('category_id', $category->id)->paginate(8);
-        return view('category', @compact('products', 'category'));
+        try {
+            $category = Category::where('name', $categoryName)->first();
+            $products = Product::where('category_id', $category->id)->paginate(8);
+            return view('category', @compact('products', 'category'));
+        } catch (Exception $e) {
+            abort(404);
+        }
+
     }
 }
