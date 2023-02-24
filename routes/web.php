@@ -61,6 +61,10 @@ Route::prefix('/admin')->group(function () {
 
     Route::post('/editproduct/{id?}',[ProductsController::class, 'saveEditedProduct'])->name('admin.editproduct')->middleware('admin');
 
+    Route::get('/editcategory/{id?}',[CategoriesController::class, 'editCategory'])->name('admin.editcategory')->middleware('admin');
+
+    Route::post('/editcategory/{id?}',[CategoriesController::class, 'saveEditedCategory'])->name('admin.editcategory')->middleware('admin');
+
     Route::get('/deleteproduct/{id?}', [ProductsController::class, 'deleteproduct'])->name('admin.deleteproduct')->middleware('admin');
 
     Route::post('/edituser/{id?}', [UsersController::class, 'editUser'])->name('admin.edituser')->middleware('admin');
