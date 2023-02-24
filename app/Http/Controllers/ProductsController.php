@@ -92,10 +92,9 @@ class ProductsController extends Controller
 
     public function saveEditedProduct(Request $request)
     {
+        $editedProduct = Product::findOrFail($request->id);
 
-        $actualizar = Product::findOrFail($request->id);
-
-        if ($request->name === $actualizar->name) {
+        if ($request->name === $editedProduct->name) {
             $request->validate([
                 'name' => 'required|string|min:4|max:255',
                 'price' => 'required|numeric|min:0',
@@ -123,26 +122,26 @@ class ProductsController extends Controller
 
         if (!$errors) {
 
-            $actualizar->name = $request->name;
-            $actualizar->price = $request->price;
-            $actualizar->stock = $request->stock;
-            $actualizar->description = $request->description;
-            $request->image ? $actualizar->image = $request->image : '';
-            $actualizar->IVA = $request->iva;
-            $actualizar->total = ($request['price'] * ($request['iva'] / 100)) + $request['price'];
-            $actualizar->status = $request->status;
-            $actualizar->category_id = $request['category'];
-            $actualizar->update();
+            $editedProduct->name = $request->name;
+            $editedProduct->price = $request->price;
+            $editedProduct->stock = $request->stock;
+            $editedProduct->description = $request->description;
+            $request->image ? $editedProduct->image = $request->image : '';
+            $editedProduct->IVA = $request->iva;
+            $editedProduct->total = ($request['price'] * ($request['iva'] / 100)) + $request['price'];
+            $editedProduct->status = $request->status;
+            $editedProduct->category_id = $request['category'];
+            $editedProduct->update();
 
             if ($request->image) {
-                $imageName = "image-" . $actualizar->id . '.' . $request->image->extension();
+                $imageName = "image-" . $editedProduct->id . '.' . $request->image->extension();
                 $request->image->move(public_path('img'), $imageName);
-                $actualizar->image = $imageName;
+                $editedProduct->image = $imageName;
 
-                $actualizar->update();
+                $editedProduct->update();
             }
 
-            $message = 'El producto ' . $actualizar->id . ' se ha actualizado correctamente';
+            $message = 'El producto ' . $editedProduct->id . ' se ha actualizado correctamente';
             return redirect()->route('admin.products')->with('message', $message);
         } else {
             $errors = $request->errors();
