@@ -49,7 +49,7 @@
                                     </button>
 
                                 <input id="form1" min="1" max="99" name="quantity" value="1" type="number"
-                                    class="form-control form-control-sm product-quantity-width text-center" disabled/>
+                                    class="form-control form-control-sm product-quantity-width text-center"/>
 
                                     <button class="btn px-2" type="button"
                                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
