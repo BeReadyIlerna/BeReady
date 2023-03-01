@@ -5,6 +5,13 @@
 @endsection
 
 @section('adminContent')
+    <h1>Categorías</h1>
+
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
     <table class="table">
         <thead>
             <tr>
@@ -21,7 +28,7 @@
                     <td scope='row'>{{ $category->id }}</td>
                     <td>{{ $category->name }}</td>
                     <td>{{ $category->description }}</td>
-                    <td><a href="{{ route('admin.editproduct', $category->id) }}"><button type="button"
+                    <td><a href="{{ route('admin.editcategory', $category->id) }}"><button type="button"
                                 class="btn-primary btn-sm"><i class="bi bi-pencil-square fs-5"></i></button></a></td>
                     <td><button type="button" class="btn-danger btn-sm"><i class="bi bi-trash3-fill fs-5"></i></button>
                     </td>
@@ -31,6 +38,6 @@
     </table>
 
     <div class="justify-content-center d-flex text-center">
-        {{$categories->links() }}
+        {{ $categories->links() }}
     </div>
 @endsection

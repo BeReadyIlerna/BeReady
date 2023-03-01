@@ -14,7 +14,7 @@ class ProductsController extends Controller
 {
     public function products()
     {
-        $products = Product::latest()->take(8)->get();
+        $products = Product::where('status', 'enabled')->latest()->take(8)->get();
 
         if (Auth::check()) {
             $user = User::findOrFail(Auth::id());
@@ -32,7 +32,7 @@ class ProductsController extends Controller
 
     public function selectProduct($id)
     {
-        $product = Product::findOrFail($id); // Get selected product
+        $product = Product::where('status', 'enabled')->findOrFail($id); // Get selected product
         return view('product', @compact('product'));
     }
 
@@ -45,6 +45,7 @@ class ProductsController extends Controller
             'description' => 'required|string|min:10|max:65000',
             'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'iva' => 'required|integer|min:0',
+            'status' => 'required',
             'category' => 'required'
         ]);
 
@@ -58,6 +59,7 @@ class ProductsController extends Controller
             $product->description = $request['description'];
             $product->IVA = $request['iva'];
             $product->total = ($request['price'] * ($request['iva'] / 100)) + $request['price'];
+            $product->status = $request['status'];
             $product->category_id = $request['category'];
 
             $product->save();
@@ -90,17 +92,17 @@ class ProductsController extends Controller
 
     public function saveEditedProduct(Request $request)
     {
+        $editedProduct = Product::findOrFail($request->id);
 
-        $actualizar = Product::findOrFail($request->id);
-
-        if ($request->name === $actualizar->name) {
+        if ($request->name === $editedProduct->name) {
             $request->validate([
                 'name' => 'required|string|min:4|max:255',
                 'price' => 'required|numeric|min:0',
                 'stock' => 'required|integer|min:0',
                 'description' => 'required|string|min:10|max:65000',
-                'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+                'image' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
                 'iva' => 'required|integer|min:0',
+                'status' => 'required',
                 'category' => 'required'
             ]);
         } else {
@@ -109,8 +111,9 @@ class ProductsController extends Controller
                 'price' => 'required|numeric|min:0',
                 'stock' => 'required|integer|min:0',
                 'description' => 'required|string|min:10|max:65000',
-                'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+                'image' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
                 'iva' => 'required|integer|min:0',
+                'status' => 'required',
                 'category' => 'required'
             ]);
         }
@@ -119,28 +122,43 @@ class ProductsController extends Controller
 
         if (!$errors) {
 
-            $actualizar->name = $request->name;
-            $actualizar->price = $request->price;
-            $actualizar->stock = $request->stock;
-            $actualizar->description = $request->description;
-            $actualizar->image = $request->image;
-            $actualizar->IVA = $request->iva;
-            $actualizar->total = ($request['price'] * ($request['iva'] / 100)) + $request['price'];
-            $actualizar->category_id = $request['category'];
-            $actualizar->update();
+            $editedProduct->name = $request->name;
+            $editedProduct->price = $request->price;
+            $editedProduct->stock = $request->stock;
+            $editedProduct->description = $request->description;
+            $request->image ? $editedProduct->image = $request->image : '';
+            $editedProduct->IVA = $request->iva;
+            $editedProduct->total = ($request['price'] * ($request['iva'] / 100)) + $request['price'];
+            $editedProduct->status = $request->status;
+            $editedProduct->category_id = $request['category'];
+            $editedProduct->update();
 
-            $imageName = "image-" . $actualizar->id . '.' . $request->image->extension();
-            $request->image->move(public_path('img'), $imageName);
-            $actualizar->image = $imageName;
+            if ($request->image) {
+                $imageName = "image-" . $editedProduct->id . '.' . $request->image->extension();
+                $request->image->move(public_path('img'), $imageName);
+                $editedProduct->image = $imageName;
 
-            $actualizar->update();
+                $editedProduct->update();
+            }
 
-            $pProduct = new ProductsController;
-            $message = 'El producto se ha actualizado correctamente';
-            return $pProduct->showProduct($message);
+            $message = 'El producto ' . $editedProduct->id . ' se ha actualizado correctamente';
+            return redirect()->route('admin.products')->with('message', $message);
         } else {
             $errors = $request->errors();
             return back()->with('errors', $errors);
+        }
+    }
+
+    public function deleteProduct($id)
+    {
+        $product = Product::findOrFail($id);
+        if ($product->status == 'enabled') {
+            $product->status = 'disabled';
+            $product->update();
+
+            return redirect()->route('admin.products')->with('message', 'Se ha deshabilitado correctamente el producto ' . $product->id);
+        } else {
+            return redirect()->route('admin.products')->with('errors', 'El producto ' . $product->id . ' ya está deshabilitado');
         }
     }
 }

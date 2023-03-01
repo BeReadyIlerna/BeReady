@@ -71,6 +71,18 @@
                 </div>
 
                 <div class="form-floating mb-3">
+                    <select class="form-select" id="status" aria-label="Estado" name="status" required>
+                        <option value="enabled" {{ old('status') == 'enabled' ? 'selected' : '' }}>
+                            Disponible
+                        </option>
+                        <option value="disabled" {{ old('status') == 'disabled' ? 'selected' : '' }}>
+                            No disponible
+                        </option>
+                    </select>
+                    <label for="status">Estado<span class="text-danger">*</span></label>
+                </div>
+
+                <div class="form-floating mb-3">
                     <input class="form-control" id="image" type="file" name="image" placeholder="Imagen"
                         accept="image/png, image/jpeg, image/webp" data-sb-validations="required"
                         value="{{ old('image') }}" required />

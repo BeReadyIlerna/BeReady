@@ -34,48 +34,64 @@ Route::get('/signup', function () {
 Route::post("/signup", [UsersController::class, "create"])->name("user.create")->middleware('guest');
 
 Route::get('/product/{id?}', [ProductsController::class, 'selectProduct'])->name('product');
+
 Route::post('/product/addproduct', [ShoppingcartsController::class, 'addProduct'])->name('cart.addProduct')->middleware('auth');
 
 Route::post('/', [OrdersController::class, 'makeOrder'])->name('user.makeOrder')->middleware('auth');
 
 Route::prefix('/admin')->group(function () {
+
     Route::get('/newproduct', [ProductsController::class, 'showCategories'])->name('product.new')->middleware('admin');
-    
+
     Route::get('/newcategory', function () {
         return view('admin.newcategory');
     })->name('category.new')->middleware('admin');
-    
+
     Route::post('/addproduct', [ProductsController::class, 'create'])->name('product.create')->middleware('admin');
 
     Route::post('/addcategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
-    
-    Route::get('/products',[ProductsController::class, 'showProduct'])->name('admin.products')->middleware('admin');
 
-    Route::get('/categories',[CategoriesController::class, 'showCategories'])->name('admin.categories')->middleware('admin');
+    Route::get('/products', [ProductsController::class, 'showProduct'])->name('admin.products')->middleware('admin');
 
-    Route::get('/users',[UsersController::class, 'showUsers'])->name('admin.users')->middleware('admin');
+    Route::get('/categories', [CategoriesController::class, 'showCategories'])->name('admin.categories')->middleware('admin');
+
+    Route::get('/', [UsersController::class, 'showUsers'])->name('admin.users')->middleware('admin');
 
     Route::post('/addCategory', [CategoriesController::class, 'create'])->name('category.create')->middleware('admin');
 
-    Route::get('/editproduct/{id?}',[ProductsController::class, 'editProduct'])->name('admin.editproduct')->middleware('admin');
+    Route::get('/editproduct/{id?}', [ProductsController::class, 'editProduct'])->name('admin.editproduct')->middleware('admin');
 
-    Route::post('/editproduct/{id?}',[ProductsController::class, 'saveEditedProduct'])->name('admin.editsproduct')->middleware('admin');
+    Route::post('/editproduct/{id?}', [ProductsController::class, 'saveEditedProduct'])->name('admin.editproduct')->middleware('admin');
 
+    Route::get('/editcategory/{id?}', [CategoriesController::class, 'editCategory'])->name('admin.editcategory')->middleware('admin');
+
+    Route::post('/editcategory/{id?}', [CategoriesController::class, 'saveEditedCategory'])->name('admin.editcategory')->middleware('admin');
+
+    Route::get('/deleteproduct/{id?}', [ProductsController::class, 'deleteproduct'])->name('admin.deleteproduct')->middleware('admin');
+
+    Route::post('/edituser/{id?}', [UsersController::class, 'editUser'])->name('admin.edituser')->middleware('admin');
 });
 
 Route::prefix('/user')->group(function () {
+
     Route::get('/', [UsersController::class, 'showData'])->name('user.data')->middleware('auth');
+
     Route::put('/adress-update', [AddressesController::class, 'update'])->name('user.adressUpdate')->middleware('auth');
-    
+
     Route::get('/orders', [UsersController::class, 'showOrders'])->name('user.orders')->middleware('auth');
+
     Route::get('/orders/{id?}', [OrdersController::class, 'showOrderDetails'])->name('user.orderdetails')->middleware('auth');
-    
+
     Route::get('/support', [UsersController::class, 'supportView'])->name('user.support')->middleware('auth');
-    
+
     Route::prefix('/cart')->group(function () {
+
         Route::get('/', [ShoppingcartsController::class, 'showCart'])->name('user.cart')->middleware('auth');
+
         Route::get('/delete/{id?}', [ShoppingcartsController::class, 'deleteProduct'])->name('user.cartDelete')->middleware('auth');
+
         Route::get('/sub/{id?}', [ShoppingcartsController::class, 'subtractProduct'])->name('user.cartProductSub')->middleware('auth');
+
         Route::get('/sum/{id?}', [ShoppingcartsController::class, 'sumProduct'])->name('user.cartProductSum')->middleware('auth');
     });
 });
